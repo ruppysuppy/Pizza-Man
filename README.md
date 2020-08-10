@@ -4,9 +4,9 @@ This is an E-Commerce website for ordering Pizza Online
 
 ### Libraries used
 
-React: To create the Single Page App
-Redux: For State Management
-Firebase: As a DataBase
+1. React: To create the Single Page App
+2. Redux: For State Management
+3. Firebase: As a DataBase
 
 ### Firebase Setup
 
