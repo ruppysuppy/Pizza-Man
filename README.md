@@ -5,8 +5,9 @@ This is an E-Commerce website for ordering Pizza Online
 ### Libraries used
 
 1. React: To create the Single Page App
-2. Redux: For State Management
-3. Firebase: As a DataBase
+2. React-Router: For Routing
+3. Redux: For State Management
+4. Firebase: As a DataBase
 
 ### Firebase Setup
 
@@ -31,6 +32,6 @@ export default firebaseConfig;
 
 To use the project follow the steps given below:
 
-1. Install the necessary modules (`npm install`). If there is any issues, delete `package-lock.json` and try again.
+1. Install the necessary modules (`npm install`).
 2. Setup Firebase Project and configeration
 3. Use `npm start` to run the react app
