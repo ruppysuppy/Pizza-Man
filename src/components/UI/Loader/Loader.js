@@ -1,10 +1,15 @@
 import React from 'react'
 
+import slice from '../../../static/img/slice.png'
+import style from './loader.module.css'
+
+// Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 function Loader() {
     return (
-        <>
-            Loader
-        </>
+        <div className={style.LoaderBody}>
+            <img src={slice} alt="Pizza Slice" className={style.PizzaSlice} />
+            <h2 className={`ml-5 ${style.Text}`}>Loading</h2>
+        </div>
     )
 }
 

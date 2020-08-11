@@ -1,0 +1,78 @@
+.LoaderBody {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(5, 0, 35);
+}
+
+.PizzaSlice {
+	height: 100px;
+	animation: loading-slice 4s linear infinite;
+}
+
+.Text {
+	color: white;
+	animation: loading-text 4s linear infinite;
+}
+
+@keyframes loading-slice {
+	0% {
+		opacity: 0;
+	}
+	15% {
+		opacity: 0;
+		transform: translateY(-100%) rotateZ(180deg);
+	}
+	25% {
+		opacity: 1;
+		transform: translateY(0%) rotateZ(180deg);
+	}
+	50% {
+		opacity: 1;
+		filter: drop-shadow(0 0 8px #ffffff);
+	}
+	75% {
+		opacity: 1;
+		transform: translateY(0%) rotateZ(180deg);
+	}
+	85% {
+		opacity: 0;
+		transform: translateY(100%) rotateZ(180deg);
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes loading-text {
+	0% {
+		opacity: 1;
+		filter: drop-shadow(0 0 8px #ffffff);
+	}
+	15% {
+		opacity: 0.5;
+		filter: drop-shadow(0 0 0px #ffffff);
+	}
+	25% {
+		opacity: 1;
+		filter: drop-shadow(0 0 0px #ffffff);
+	}
+	50% {
+		opacity: 1;
+		filter: drop-shadow(0 0 8px #ffffff);
+	}
+	75% {
+		opacity: 1;
+		filter: drop-shadow(0 0 0px #ffffff);
+	}
+	85% {
+		opacity: 0.5;
+		filter: drop-shadow(0 0 0px #ffffff);
+	}
+	100% {
+		opacity: 1;
+		filter: drop-shadow(0 0 8px #ffffff);
+	}
+}
