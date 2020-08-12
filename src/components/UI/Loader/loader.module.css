@@ -4,7 +4,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: rgb(5, 0, 35);
+	background-color: #050023;
 }
 
 .PizzaSlice {
@@ -14,20 +14,43 @@
 
 .Text {
 	color: white;
+	margin-left: 24px;
 	animation: loading-text 4s linear infinite;
 }
 
+/* media queries */
+@media (max-width: 992px) {
+	.PizzaSlice,
+	.Text {
+		margin-bottom: 8px;
+	}
+	.Text {
+		margin-left: 12px;
+	}
+}
+
+@media (max-width: 568px) {
+	.PizzaSlice,
+	.Text {
+		margin-bottom: 16px;
+	}
+	.Text {
+		margin-left: 0;
+	}
+}
+
+/* animations */
 @keyframes loading-slice {
 	0% {
 		opacity: 0;
 	}
 	15% {
 		opacity: 0;
-		transform: translateY(-100%) rotateZ(180deg);
+		transform: translateY(-100%);
 	}
 	25% {
 		opacity: 1;
-		transform: translateY(0%) rotateZ(180deg);
+		transform: translateY(0%);
 	}
 	50% {
 		opacity: 1;
@@ -35,11 +58,11 @@
 	}
 	75% {
 		opacity: 1;
-		transform: translateY(0%) rotateZ(180deg);
+		transform: translateY(0%);
 	}
 	85% {
 		opacity: 0;
-		transform: translateY(100%) rotateZ(180deg);
+		transform: translateY(100%);
 	}
 	100% {
 		opacity: 0;

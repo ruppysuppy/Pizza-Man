@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes'
 
 const initialState = {
-    isLoading: true
+    isLoading: false
 }
 
 const reducer = (state = initialState, action) => {

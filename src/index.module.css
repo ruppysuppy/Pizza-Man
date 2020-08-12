@@ -1,0 +1,21 @@
+/* Portrait Mode Lock on Mobile Devices */
+@media (max-width: 992px) and (orientation: landscape) {
+	html {
+		background-color: black;
+	}
+	html::after {
+		color: white;
+		content: "Please Switch to Portrait Mode";
+		height: 100vh;
+		width: 100vw;
+		margin: auto;
+		font-size: xx-large;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 40px;
+	}
+	body {
+		display: none;
+	}
+}

@@ -8,7 +8,7 @@ function Loader() {
     return (
         <div className={style.LoaderBody}>
             <img src={slice} alt="Pizza Slice" className={style.PizzaSlice} />
-            <h2 className={`ml-5 ${style.Text}`}>Loading</h2>
+            <h2 className={style.Text}>Loading</h2>
         </div>
     )
 }

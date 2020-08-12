@@ -11,8 +11,10 @@ import rootReducer from './store/reducers/rootReducer'
 
 import App from './App';
 
+import './index.module.css'
+
 const composeEnhancers = (
-  process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose
+  (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose
 )
 const store = createStore(rootReducer, composeEnhancers(
   applyMiddleware(thunk)

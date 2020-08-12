@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import Layout from './components/UI/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
+import Home from './components/Pages/Home/Home';
+import Error404 from './components/Pages/404/Error404';
 
 function App(props) {
   return (
@@ -12,7 +14,8 @@ function App(props) {
         <Loader /> :
         <Layout>
           <Switch>
-            <Route path="/" exact component={Loader} />
+            <Route path="/" exact component={Home} />
+            <Route component={Error404} />
           </Switch>
         </Layout>}
     </>
