@@ -1,5 +1,5 @@
 /* Portrait Mode Lock on Mobile Devices */
-@media (max-width: 992px) and (orientation: landscape) {
+@media (max-width: 576px) and (orientation: landscape) {
 	html {
 		background-color: black;
 	}
