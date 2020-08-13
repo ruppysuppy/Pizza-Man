@@ -1,0 +1,148 @@
+.SpinnerContainer {
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	padding: 24px 0;
+}
+
+.Spinner {
+	width: 100px;
+	height: 100px;
+	margin: auto;
+	animation: spin 4s linear infinite;
+}
+
+.PizzaPart {
+	width: 50px;
+	height: 50px;
+}
+
+.PizzaPart1 {
+	animation: pizza1 4s ease-in-out infinite;
+}
+
+.PizzaPart2 {
+	animation: pizza2 4s ease-in-out infinite;
+}
+
+.PizzaPart3 {
+	animation: pizza4 4s ease-in-out infinite;
+}
+
+.PizzaPart4 {
+	animation: pizza3 4s ease-in-out infinite;
+}
+
+/* animations */
+@keyframes spin {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+
+@keyframes pizza1 {
+	0% {
+		transform: translate(-20%, -20%);
+		opacity: 0;
+	}
+	10% {
+		transform: translate(0%, 0%);
+		opacity: 1;
+	}
+	50% {
+		transform: translate(0%, 0%);
+		opacity: 1;
+	}
+	60% {
+		transform: translate(-20%, -20%);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(-20%, -20%);
+		opacity: 0;
+	}
+}
+
+@keyframes pizza2 {
+	0% {
+		transform: translate(20%, -20%);
+		opacity: 0;
+	}
+	10% {
+		transform: translate(20%, -20%);
+		opacity: 0;
+	}
+	20% {
+		transform: translate(0%, 0%);
+		opacity: 1;
+	}
+	60% {
+		transform: translate(0%, 0%);
+		opacity: 1;
+	}
+	70% {
+		transform: translate(20%, -20%);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(20%, -20%);
+		opacity: 0;
+	}
+}
+
+@keyframes pizza3 {
+	0% {
+		transform: translate(20%, 20%);
+		opacity: 0;
+	}
+	20% {
+		transform: translate(20%, 20%);
+		opacity: 0;
+	}
+	30% {
+		transform: translate(0%, 0%);
+		opacity: 1;
+	}
+	70% {
+		transform: translate(0%, 0%);
+		opacity: 1;
+	}
+	80% {
+		transform: translate(20%, 20%);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(20%, 20%);
+		opacity: 0;
+	}
+}
+
+@keyframes pizza4 {
+	0% {
+		transform: translate(-20%, 20%);
+		opacity: 0;
+	}
+	30% {
+		transform: translate(-20%, 20%);
+		opacity: 0;
+	}
+	40% {
+		transform: translate(0%, 0%);
+		opacity: 1;
+	}
+	80% {
+		transform: translate(0%, 0%);
+		opacity: 1;
+	}
+	90% {
+		transform: translate(-20%, 20%);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(-20%, 20%);
+		opacity: 0;
+	}
+}
