@@ -6,6 +6,7 @@ import Layout from './components/UI/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
 import Home from './components/Pages/Home/Home';
 import Error404 from './components/Pages/404/Error404';
+import Menu from './components/Pages/Menu/Menu';
 
 function App(props) {
   return (
@@ -15,6 +16,7 @@ function App(props) {
         <Layout>
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/menu" component={Menu} />
             <Route component={Error404} />
           </Switch>
         </Layout>}
