@@ -28,6 +28,23 @@ const firebaseConfig = {
 export default firebaseConfig;
 ```
 
+Data needs to be stored in the following format (can hold as many pizzas or categories as needed):
+
+```javascript
+{
+	menu: {
+		category: [
+			{
+				id: 1, // number
+				name: "NAME", // string
+				desc: "DESCRIPTION", // string
+				price: 100, // number
+			},
+		];
+	}
+}
+```
+
 ### How to Use
 
 To use the project follow the steps given below:
