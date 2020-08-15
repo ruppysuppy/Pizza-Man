@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import Navlinks from './NavLinks/Navlinks'
+import SideDrawer from './Sidedrawer/SideDrawer'
 
 import style from './navbar.module.css'
 
@@ -27,6 +28,10 @@ function Navbar() {
                     <div className={`${style.Bar3} ${sidebarShown ? style.CrossBar3 : null}`} />
                 </button>
             </div>
+            <SideDrawer
+                sidebarClose={() => setSidebarShown(false)}
+                sidebarShown={sidebarShown}
+            />
         </div>
     )
 }

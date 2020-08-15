@@ -8,6 +8,7 @@
 	font-weight: 700;
 	text-decoration: none;
 	position: relative;
+	width: max-content;
 }
 
 .NavLink:hover {

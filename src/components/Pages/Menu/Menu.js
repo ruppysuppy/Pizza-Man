@@ -22,7 +22,7 @@ class Menu extends Component {
         )
 
         return (
-            <div>
+            <div className="mt-5 pt-2">
                 {this.props.error ?
                     this.props.error
                     : this.props.isLoading ?
