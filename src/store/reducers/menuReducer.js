@@ -18,14 +18,11 @@ const reducer = (state = initialState, action) => {
             }
 
         case actionTypes.SET_MENU:
-            if (Object.keys(state.menu).length === 0) {
-                return {
-                    ...state,
-                    menu: payload.menu,
-                    isLoading: false
-                }
+            return {
+                ...state,
+                menu: payload.menu,
+                isLoading: false
             }
-            return state
 
         case actionTypes.MENU_ERROR:
             return {

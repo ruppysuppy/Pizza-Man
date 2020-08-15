@@ -8,7 +8,9 @@ import Category from './Category/Category'
 
 class Menu extends Component {
     componentDidMount() {
-        this.props.initMenu()
+        if (Object.keys(this.props.menu).length === 0) {
+            this.props.initMenu()
+        }
     }
 
     render() {

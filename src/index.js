@@ -11,7 +11,7 @@ import rootReducer from './store/reducers/rootReducer'
 
 import App from './App';
 
-import './index.module.css'
+import './index.css'
 
 const composeEnhancers = (
   (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose

@@ -1,0 +1,63 @@
+.NavBar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	background-color: #eee;
+	width: 100vw;
+	border-radius: 0 0 8px 8px;
+}
+
+.NavContainer {
+	display: flex;
+}
+
+.NavIcon img {
+	width: 80px;
+	margin: 8px 0;
+}
+
+.Toggler {
+	display: none;
+	border: none;
+	background-color: transparent;
+	height: 40px;
+	width: 45px;
+	border-radius: 8px;
+	cursor: pointer;
+	outline: none !important;
+}
+
+.Bar1,
+.Bar2,
+.Bar3 {
+	width: 28px;
+	height: 2px;
+	background-color: #333;
+	margin: 6px 0;
+	transition: 0.4s;
+}
+
+.CrossBar1 {
+	-webkit-transform: rotate(-45deg) translate(-8px, 4px);
+	transform: rotate(-45deg) translate(-8px, 4px);
+}
+
+.CrossBar2 {
+	opacity: 0;
+}
+
+.CrossBar3 {
+	-webkit-transform: rotate(45deg) translate(-8px, -4px);
+	transform: rotate(45deg) translate(-8px, -4px);
+}
+
+/* media queries */
+@media (max-width: 992px) {
+	.NavLinkHolder {
+		display: none;
+	}
+	.Toggler {
+		display: inline-block;
+	}
+}
