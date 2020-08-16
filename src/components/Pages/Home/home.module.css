@@ -1,17 +1,21 @@
 .CarouselContainer {
-	background-color: rgba(0, 0, 0, 0.7);
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	position: relative;
 }
 
 .ImgContainer {
-	height: 100vh;
+	height: 95vh;
 	width: 100vw;
 	background-position: center;
 	background-size: cover;
+}
+
+.BodyContainer {
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 95vh;
+	width: 100vw;
 }
 
 .Logo {
@@ -32,24 +36,6 @@
 	font-size: 32px;
 	margin-top: 16px;
 	margin: 8px 0;
-}
-
-.OrderBtn {
-	background-color: #724cf9;
-	color: white;
-	border: none;
-	border-radius: 8px;
-	padding: 8px 16px;
-	font-size: large;
-	margin-top: 20px;
-	transition: 0.2s ease-in-out;
-}
-
-.OrderBtn:hover,
-.OrderBtn:focus {
-	transform: scale(1.05);
-	filter: drop-shadow(0 0 8px #724cf9);
-	outline: none;
 }
 
 /* media queries */

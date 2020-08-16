@@ -19,7 +19,7 @@
 	width: 40vw;
 	height: 100vh;
 	background-color: white;
-	transition: 0.2s;
+	transition: 0.2s ease-out;
 }
 
 .SideBarBodyClose {

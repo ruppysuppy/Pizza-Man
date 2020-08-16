@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import Navlinks from './NavLinks/Navlinks'
 import SideDrawer from './Sidedrawer/SideDrawer'
@@ -14,7 +15,9 @@ function Navbar() {
         <div className={style.NavBar}>
             <div className={`container ${style.NavContainer}`}>
                 <div className={style.NavIcon}>
-                    <img src={Logo} alt="Pizza Man" />
+                    <Link to="/">
+                        <img src={Logo} alt="Pizza Man" />
+                    </Link>
                 </div>
                 <div className={`ml-auto my-auto ${style.NavLinkHolder}`}>
                     <Navlinks />

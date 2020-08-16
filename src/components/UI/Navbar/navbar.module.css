@@ -5,7 +5,7 @@
 	z-index: 100;
 	background-color: #eee;
 	width: 100vw;
-	border-radius: 0 0 8px 8px;
+	border-radius: 0 0 2px 2px;
 }
 
 .NavContainer {
@@ -35,7 +35,13 @@
 	height: 2px;
 	background-color: #333;
 	margin: 6px 0;
-	transition: 0.4s;
+	transition: 0.2s;
+}
+
+.Toggler:hover .Bar1,
+.Toggler:hover .Bar2,
+.Toggler:hover .Bar3 {
+	margin: 3px 0;
 }
 
 .CrossBar1 {

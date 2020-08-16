@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Navlinks from '../NavLinks/Navlinks'
 
@@ -15,7 +16,9 @@ function SideDrawer(props) {
             onClick={sidebarClose}>
             <div className={`${style.SideBarBody} ${sidebarShown ? style.SideBarBodyOpen : style.SideBarBodyClose}`}>
                 <div className={`container ${style.SideDrawerIcon}`}>
-                    <img src={Logo} alt="Pizza Man" />
+                    <Link to="/">
+                        <img src={Logo} alt="Pizza Man" />
+                    </Link>
                     <Navlinks />
                 </div>
             </div>

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Button from '../../UI/Button/Button'
+
 import style from './home.module.css'
 
 import BG1 from '../../../static/img/HomeBg/1.jpg'
@@ -31,15 +33,15 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className={`pt-5 ${style.CarouselContainer}`}>
+            <div className={`pt-5 ${style.BodyContainer}`}>
                 <div className="container mt-5 pt-5">
                     <img src={Logo} className={style.Logo} alt="Logo" />
                     <h2 className={style.H2}>Pizza Man Online Ordering</h2>
                     <h1 className={style.H1}>Your Yummy Pizza Delivered Fast & Fresh</h1>
                     <Link to="/menu">
-                        <button className={style.OrderBtn}>
+                        <Button>
                             Order Now
-                        </button>
+                        </Button>
                     </Link>
                 </div>
             </div>
