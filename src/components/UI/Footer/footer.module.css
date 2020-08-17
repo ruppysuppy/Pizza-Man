@@ -12,6 +12,41 @@
 	align-items: center;
 }
 
+.FooterSection {
+	width: 50%;
+}
+
+.LinksContainer {
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.TextLink {
+	color: #724cf9 !important;
+	margin: 8px 0px;
+	font-weight: 500;
+	position: relative;
+	width: max-content;
+	text-transform: uppercase;
+}
+
+.TextLink::after {
+	content: "";
+	background-color: #724cf9;
+	height: 2px;
+	width: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-radius: 2px;
+	transition: 0.2s;
+}
+
+.TextLink:hover::after {
+	width: 100%;
+}
+
 .Link {
 	text-decoration: none;
 }
@@ -29,9 +64,16 @@
 
 .SocialMediaBtn:hover {
 	cursor: pointer;
-	transform: scale(1.05);
+	transform: scale(1.2);
 }
 
+.Copyright {
+	font-weight: 500;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+/* icon effects */
 .FaceBook {
 	color: #3b5998;
 }
@@ -53,13 +95,23 @@
 }
 
 .Instagram {
-	color: #3f729b;
+	background: -webkit-linear-gradient(
+		225deg,
+		rgba(129, 52, 175, 1) 0%,
+		rgba(221, 42, 123, 1) 50%,
+		rgba(254, 218, 119, 1) 85%,
+		rgba(245, 133, 41, 1) 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .Instagram:hover {
 	color: white;
-	background-color: #3f729b;
-	filter: drop-shadow(0 0 8px #3f729b);
+	background-color: rgba(129, 52, 175, 1);
+	filter: drop-shadow(0 0 8px rgba(129, 52, 175, 1));
+	-webkit-background-clip: initial;
+	-webkit-text-fill-color: initial;
 }
 
 .Youtube {
@@ -70,4 +122,17 @@
 	color: white;
 	background-color: #ff0000;
 	filter: drop-shadow(0 0 8px #ff0000);
+}
+
+/* media queries */
+@media (max-width: 768px) {
+	.Copyright {
+		font-size: small;
+	}
+}
+
+@media (max-width: 578px) {
+	.Copyright {
+		font-size: smaller;
+	}
 }

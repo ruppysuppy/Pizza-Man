@@ -6,7 +6,6 @@ import Layout from './components/UI/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
 import Home from './components/Pages/Home/Home';
 import Error404 from './components/Pages/404/Error404';
-import SocialMedia from './components/Pages/SocialMedia/SocialMedia';
 import Menu from './components/Pages/Menu/Menu';
 
 function App(props) {
@@ -18,7 +17,6 @@ function App(props) {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/menu" component={Menu} />
-            <Route path="/social-media-does-not-exist" component={SocialMedia} />
             <Route component={Error404} />
           </Switch>
         </Layout>}

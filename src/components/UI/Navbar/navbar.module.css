@@ -66,4 +66,9 @@
 	.Toggler {
 		display: inline-block;
 	}
+	.Toggler:hover .Bar1,
+	.Toggler:hover .Bar2,
+	.Toggler:hover .Bar3 {
+		margin: 6px 0;
+	}
 }
