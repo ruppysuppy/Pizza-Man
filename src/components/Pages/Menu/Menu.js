@@ -11,6 +11,7 @@ class Menu extends Component {
         if (Object.keys(this.props.menu).length === 0) {
             this.props.initMenu()
         }
+        window.scrollTo(0, 0);
     }
 
     render() {

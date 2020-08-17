@@ -1,0 +1,73 @@
+.Footer {
+	background-color: #f0f0f0;
+}
+
+.H2 {
+	text-transform: uppercase;
+}
+
+.Row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Link {
+	text-decoration: none;
+}
+
+.SocialMediaBtn {
+	height: 36px;
+	width: 36px;
+	border-radius: 50%;
+	margin: 12px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.1s;
+}
+
+.SocialMediaBtn:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+.FaceBook {
+	color: #3b5998;
+}
+
+.FaceBook:hover {
+	color: white;
+	background-color: #3b5998;
+	filter: drop-shadow(0 0 8px #3b5998);
+}
+
+.Twitter {
+	color: #00acee;
+}
+
+.Twitter:hover {
+	color: white;
+	background-color: #00acee;
+	filter: drop-shadow(0 0 8px #00acee);
+}
+
+.Instagram {
+	color: #3f729b;
+}
+
+.Instagram:hover {
+	color: white;
+	background-color: #3f729b;
+	filter: drop-shadow(0 0 8px #3f729b);
+}
+
+.Youtube {
+	color: #ff0000;
+}
+
+.Youtube:hover {
+	color: white;
+	background-color: #ff0000;
+	filter: drop-shadow(0 0 8px #ff0000);
+}

@@ -13,6 +13,8 @@ import BG4 from '../../../static/img/HomeBg/4.jpg'
 import Logo from '../../../static/img/Logo.png'
 
 function Home() {
+    window.scrollTo(0, 0);
+
     return (
         <>
             <div className={style.CarouselContainer}>

@@ -3,9 +3,9 @@
 	left: 0;
 	top: 0;
 	z-index: 100;
-	background-color: #eee;
+	background-color: #f0f0f0;
 	width: 100vw;
-	border-radius: 0 0 2px 2px;
+	border-radius: 0 0 4px 4px;
 }
 
 .NavContainer {
