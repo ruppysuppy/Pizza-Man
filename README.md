@@ -31,18 +31,19 @@ export default firebaseConfig;
 Data needs to be stored in the following format (can hold as many pizzas or categories as needed):
 
 ```javascript
-{
-	menu: {
-		category: [
+[
+	{
+		name: "CATEGORY NAME",
+		items: [
 			{
-				id: 1, // number
-				name: "NAME", // string
-				desc: "DESCRIPTION", // string
-				price: 100, // number
+				desc: "PIZZA DESCRIPTION",
+				id: "ID",
+				name: "PIZZA NAME",
+				price: 100, // PRICE
 			},
-		];
-	}
-}
+		],
+	},
+];
 ```
 
 ### How to Use

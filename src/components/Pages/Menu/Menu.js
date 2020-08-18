@@ -8,17 +8,17 @@ import Category from './Category/Category'
 
 class Menu extends Component {
     componentDidMount() {
-        if (Object.keys(this.props.menu).length === 0) {
+        if (this.props.menu.length === 0) {
             this.props.initMenu()
         }
         window.scrollTo(0, 0);
     }
 
     render() {
-        const display = Object.keys(this.props.menu).map(categoryName => <Category
-            name={categoryName}
-            items={this.props.menu[categoryName]}
-            key={categoryName}
+        const display = this.props.menu.map(categoryData => <Category
+            name={categoryData.name}
+            items={categoryData.items}
+            key={categoryData.name}
         />
         )
 
