@@ -1,0 +1,62 @@
+.Heading {
+	margin: 12px 8px 0px 8px;
+	padding: 16px 16px;
+	border-radius: 4px;
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.HeadingClosed {
+	background-color: #eee;
+}
+
+.HeadingOpen {
+	background-color: #888;
+}
+
+.HeadingText {
+	width: max-content;
+	max-width: 95%;
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
+}
+
+.Toggler {
+	border: none;
+	outline: none !important;
+	background-color: transparent;
+	width: max-content;
+}
+
+.AccordianBody {
+	background-color: #eee;
+	border-radius: 4px;
+	margin: 0px 8px 12px 8px;
+	padding: 0 16px;
+	overflow: hidden;
+	transition: 0.2s;
+}
+
+.AccordianClosed {
+	height: 0;
+	padding: 0 16px;
+}
+
+.AccordianOpen {
+	padding: 16px 16px;
+	height: max-content;
+}
+
+@media (max-width: 992px) {
+	.HeadingText {
+		max-width: 90%;
+	}
+}
+
+@media (max-width: 576px) {
+	.HeadingText {
+		max-width: 85%;
+	}
+}
