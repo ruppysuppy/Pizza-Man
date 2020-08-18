@@ -102,6 +102,7 @@
 		rgba(254, 218, 119, 1) 85%,
 		rgba(245, 133, 41, 1) 100%
 	);
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -110,6 +111,7 @@
 	color: white;
 	background-color: rgba(129, 52, 175, 1);
 	filter: drop-shadow(0 0 8px rgba(129, 52, 175, 1));
+	background-clip: initial;
 	-webkit-background-clip: initial;
 	-webkit-text-fill-color: initial;
 }
