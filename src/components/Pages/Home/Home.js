@@ -20,16 +20,16 @@ function Home() {
             <div className={style.CarouselContainer}>
                 <div className="carousel slide" data-ride="carousel" data-pause="false">
                     <div className="carousel-inner">
-                        <div className="carousel-item active" data-interval="5000" >
+                        <div className="carousel-item active" data-interval="3000" >
                             <div className={style.ImgContainer} style={{ backgroundImage: `url(${BG1})` }} />
                         </div>
-                        <div className="carousel-item" data-interval="5000" >
+                        <div className="carousel-item" data-interval="3000" >
                             <div className={style.ImgContainer} style={{ backgroundImage: `url(${BG2})` }} />
                         </div>
-                        <div className="carousel-item" data-interval="5000" >
+                        <div className="carousel-item" data-interval="3000" >
                             <div className={style.ImgContainer} style={{ backgroundImage: `url(${BG3})` }} />
                         </div>
-                        <div className="carousel-item" data-interval="5000" >
+                        <div className="carousel-item" data-interval="3000" >
                             <div className={style.ImgContainer} style={{ backgroundImage: `url(${BG4})` }} />
                         </div>
                     </div>
