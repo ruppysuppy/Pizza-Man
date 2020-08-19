@@ -1,0 +1,54 @@
+.Body {
+	background-color: #ddd;
+	padding: 8px 12px;
+	margin: 8px 0;
+	border-radius: 8px;
+}
+
+.Row {
+	display: flex;
+}
+
+.BtnCustomize {
+	border: none;
+	outline: none !important;
+	width: max-content;
+	font-weight: 700;
+	margin-left: 12px;
+	padding: 4px 8px;
+	border-radius: 6px;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	transition: 0.1s;
+}
+
+.BtnCustomize:hover,
+.CartBtn:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+}
+
+.Price {
+	width: max-content;
+}
+
+.BtnHolder {
+	display: inline-block;
+	width: max-content;
+	display: flex;
+}
+
+.CartBtn {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	font-size: 24px;
+	border: none;
+	outline: none !important;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 8px;
+	transition: 0.1s;
+}

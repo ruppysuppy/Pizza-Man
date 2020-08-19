@@ -32,14 +32,14 @@ function Menu(props) {
                 </h1>
                 <div className={`mt-1 mb-4 ${style.HR}`} />
                 <div className="row">
-                    <div className="col-8">
+                    <div className="col-lg-8">
                         {error ?
                             error
                             : isLoading ?
                                 <Spinner />
                                 : display}
                     </div>
-                    <div className="col-4 mb-5 border">
+                    <div className="col-lg-4 mb-5 border">
                         <Cart />
                     </div>
                 </div>
