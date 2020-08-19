@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import Layout from './components/UI/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
@@ -9,11 +8,10 @@ import Error404 from './components/Pages/404/Error404';
 import Menu from './components/Pages/Menu/Menu';
 import FAQ from './components/Pages/FAQ/FAQ';
 
-function App(props) {
+function App() {
   return (
     <>
-      {props.isLoading ?
-        <Loader /> :
+      <Suspense fallback={Loader}>
         <Layout>
           <Switch>
             <Route path="/" exact component={Home} />
@@ -21,13 +19,10 @@ function App(props) {
             <Route path="/faq" component={FAQ} />
             <Route component={Error404} />
           </Switch>
-        </Layout>}
+        </Layout>
+      </Suspense>
     </>
   );
 }
 
-const mapStateToProps = state => ({
-  isLoading: state.ui.isLoading
-})
-
-export default connect(mapStateToProps)(App);
+export default App;

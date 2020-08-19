@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import Button from '../../UI/Button/Button'
@@ -13,7 +13,8 @@ import BG4 from '../../../static/img/HomeBg/4.jpg'
 import Logo from '../../../static/img/Logo.png'
 
 function Home() {
-    window.scrollTo(0, 0);
+    // Scroll To Top
+    useEffect(() => window.scrollTo(0, 0), [])
 
     return (
         <>

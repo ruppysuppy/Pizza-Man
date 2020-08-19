@@ -43,6 +43,8 @@
 	transition: 0.2s;
 }
 
+.TextLink:active::after,
+.TextLink:focus::after,
 .TextLink:hover::after {
 	width: 100%;
 }
@@ -62,6 +64,8 @@
 	transition: 0.1s;
 }
 
+.SocialMediaBtn:active,
+.SocialMediaBtn:focus,
 .SocialMediaBtn:hover {
 	cursor: pointer;
 	transform: scale(1.2);
@@ -78,6 +82,8 @@
 	color: #3b5998;
 }
 
+.FaceBook:active,
+.FaceBook:focus,
 .FaceBook:hover {
 	color: white;
 	background-color: #3b5998;
@@ -88,6 +94,8 @@
 	color: #00acee;
 }
 
+.Twitter:active,
+.Twitter:focus,
 .Twitter:hover {
 	color: white;
 	background-color: #00acee;
@@ -107,6 +115,8 @@
 	-webkit-text-fill-color: transparent;
 }
 
+.Instagram:active,
+.Instagram:focus,
 .Instagram:hover {
 	color: white;
 	background-color: rgba(129, 52, 175, 1);
@@ -120,6 +130,8 @@
 	color: #ff0000;
 }
 
+.Youtube:active,
+.Youtube:focus,
 .Youtube:hover {
 	color: white;
 	background-color: #ff0000;

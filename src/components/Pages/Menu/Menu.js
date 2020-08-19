@@ -12,11 +12,10 @@ function Menu(props) {
     const { menu, error, isLoading, initMenu } = props
 
     useEffect(() => {
-        if (menu.length === 0) {
-            initMenu()
-        }
-        window.scrollTo(0, 0);
-    }, []) // initMenu, menu may be added to avoid warning (its used as componentWillMount)
+        if (menu.length === 0) { initMenu() }
+    }, [initMenu, menu])
+    // Scroll To Top
+    useEffect(() => window.scrollTo(0, 0), [])
 
     const display = menu.map(categoryData => <Category
         name={categoryData.name}

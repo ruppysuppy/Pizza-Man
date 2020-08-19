@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import style from './error404.module.css'
 
 function Error404() {
-    window.scrollTo(0, 0);
+    // Scroll To Top
+    useEffect(() => window.scrollTo(0, 0), [])
 
     return (
         <div className={`container mt-5 pt-2 ${style.Body}`}>
