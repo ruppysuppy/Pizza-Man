@@ -2,6 +2,8 @@ import React from 'react'
 
 import Item from './Item.js/Item'
 
+import style from './category.module.css'
+
 function Category(props) {
     const { name, items } = props
 
@@ -13,8 +15,11 @@ function Category(props) {
     />)
 
     return (
-        <div>
-            <h2>{name}</h2>
+        <div className="mt-4 mb-5">
+            <div className={style.Row}>
+                <h2 className={style.H2}>{name}</h2>
+                <div className={`my-auto ${style.HR}`} />
+            </div>
             {itemsDisplay}
         </div>
     )

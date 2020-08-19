@@ -5,6 +5,7 @@ import * as actions from '../../../store/actions/actions'
 
 import Spinner from '../../UI/Spinner/Spinner'
 import Category from './Category/Category'
+import Cart from './Cart/Cart'
 
 import style from './menu.module.css'
 
@@ -29,12 +30,19 @@ function Menu(props) {
                 <h1 className="display-6 mb-0">
                     MENU
                 </h1>
-                <hr className="mt-1 mb-4" />
-                {error ?
-                    error
-                    : isLoading ?
-                        <Spinner />
-                        : display}
+                <div className={`mt-1 mb-4 ${style.HR}`} />
+                <div className="row">
+                    <div className="col-8">
+                        {error ?
+                            error
+                            : isLoading ?
+                                <Spinner />
+                                : display}
+                    </div>
+                    <div className="col-4 mb-5 border">
+                        <Cart />
+                    </div>
+                </div>
             </div>
         </>
     )
