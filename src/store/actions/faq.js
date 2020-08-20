@@ -20,7 +20,7 @@ export const getFaqSuccess = faq => {
 
 export const getFaqFail = error => {
     return {
-        type: actionTypes.GET_MENU_FAIL,
+        type: actionTypes.GET_FAQ_FAIL,
         payload: {
             error: error
         }
