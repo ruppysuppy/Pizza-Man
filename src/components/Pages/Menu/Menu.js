@@ -34,7 +34,9 @@ function Menu(props) {
                 <div className="row">
                     <div className="col-lg-8">
                         {error ?
-                            error
+                            <div class="alert alert-danger" role="alert">
+                                <strong>{error}</strong>
+                            </div>
                             : isLoading ?
                                 <Spinner />
                                 : display}

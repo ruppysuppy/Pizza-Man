@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes'
 
 const initialState = {
-    menu: [],
+    faq: [],
     isLoading: false,
     error: null
 }
@@ -10,21 +10,21 @@ const reducer = (state = initialState, action) => {
     const { type, payload } = action
 
     switch (type) {
-        case actionTypes.GET_MENU:
+        case actionTypes.GET_FAQ:
             return {
                 ...state,
                 isLoading: true,
                 error: null
             }
 
-        case actionTypes.GET_MENU_SUCCESS:
+        case actionTypes.GET_FAQ_SUCCESS:
             return {
                 ...state,
-                menu: payload.menu,
+                faq: payload.faq,
                 isLoading: false
             }
 
-        case actionTypes.GET_MENU_FAIL:
+        case actionTypes.GET_FAQ_FAIL:
             return {
                 ...state,
                 isLoading: false,

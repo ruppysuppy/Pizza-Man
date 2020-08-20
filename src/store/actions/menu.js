@@ -9,18 +9,18 @@ export const getMenu = () => {
     }
 }
 
-export const setMenu = menu => {
+export const getMenuSuccess = menu => {
     return {
-        type: actionTypes.SET_MENU,
+        type: actionTypes.GET_MENU_SUCCESS,
         payload: {
             menu: menu
         }
     }
 }
 
-export const menuError = error => {
+export const getMenuFail = error => {
     return {
-        type: actionTypes.MENU_ERROR,
+        type: actionTypes.GET_MENU_FAIL,
         payload: {
             error: error
         }
@@ -32,8 +32,8 @@ export const initMenu = () => {
         dispatch(getMenu())
         axios.get("/menu.json")
             .then(response => (
-                dispatch(setMenu(response.data))
+                dispatch(getMenuSuccess(response.data))
             ))
-            .catch(error => dispatch(menuError(error.message)))
+            .catch(error => dispatch(getMenuFail(error.message)))
     }
 }
