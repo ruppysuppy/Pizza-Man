@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import Accordian from '../../UI/Accordian/Accordian'
+import PageInfo from '../../UI/PageInfo/PageInfo'
 
 import faq from './faqList'
 
@@ -15,9 +16,14 @@ function FAQ() {
     </Accordian>)
 
     return (
-        <div className={`container my-5 py-4 ${style.Body}`}>
-            {display}
-        </div>
+        <>
+            <PageInfo>
+                FAQ
+            </PageInfo>
+            <div className={`container my-5 py-4 ${style.Body}`}>
+                {display}
+            </div>
+        </>
     )
 }
 

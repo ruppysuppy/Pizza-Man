@@ -1,13 +1,16 @@
 import React, { Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom';
 
+import About from './components/Pages/About/About';
+import Disclaimer from './components/Pages/Disclaimer/Disclaimer';
+import Error404 from './components/Pages/404/Error404';
+import FAQ from './components/Pages/FAQ/FAQ';
+import Home from './components/Pages/Home/Home';
 import Layout from './components/UI/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
-import Home from './components/Pages/Home/Home';
-import Error404 from './components/Pages/404/Error404';
 import Menu from './components/Pages/Menu/Menu';
-import FAQ from './components/Pages/FAQ/FAQ';
-import Item from './components/Pages/Menu/Category/Item.js/Item';
+import Privacy from './components/Pages/Privacy/Privacy';
+import Terms from './components/Pages/Terms/Terms';
 
 function App() {
   return (
@@ -16,12 +19,12 @@ function App() {
         <Layout>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/menu" component={Menu} />
+            <Route path="/about" component={About} />
+            <Route path="/disclaimer" component={Disclaimer} />
             <Route path="/faq" component={FAQ} />
-            <Route path="/item" component={() => <div className="my-5 py-5">
-              <Item name="Pizza" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio blanditiis vitae et corrupti! Neque dolore dolorum possimus eum sunt eos obcaecati voluptatum doloribus voluptate maiores, a placeat, vel voluptatibus at." price="100" />
-            </div>
-            } />
+            <Route path="/menu" component={Menu} />
+            <Route path="/privacy-policy" component={Privacy} />
+            <Route path="/terms-and-conditions" component={Terms} />
             <Route component={Error404} />
           </Switch>
         </Layout>

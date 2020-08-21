@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+.Body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 400px;
+	font-family: "Fredoka One", cursive;
+	font-size: 80px;
+	background: rgb(114, 76, 249);
+	background: linear-gradient(0deg, #0041bb 0%, #724cf9 50%);
+	position: relative;
+	overflow: hidden;
+}
+
+.Body span {
+	position: relative;
+	z-index: 50;
+}
+
+.Wave {
+	width: 500vw;
+	background-repeat: repeat-x;
+	position: absolute;
+	bottom: 0;
+	z-index: 100;
+}
+
+.Wave1 {
+	height: 24px;
+	background-size: 240px 24px;
+	animation: wave1 2s linear infinite;
+}
+
+.Wave2 {
+	height: 52px;
+	opacity: 0.2;
+	background-size: 520px 52px;
+	animation: wave2 4s linear infinite;
+}
+
+.Wave3 {
+	height: 40px;
+	opacity: 0.5;
+	background-size: 400px 40px;
+	animation: wave3 5s linear infinite;
+}
+
+/* animations */
+@keyframes wave1 {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(240px);
+	}
+}
+
+@keyframes wave2 {
+	0% {
+		transform: translateX(520px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes wave3 {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(400px);
+	}
+}
+
+/* media queries */
+@media (max-width: 992px) {
+	.Body {
+		font-size: 64px;
+		height: 360px;
+	}
+}
+
+@media (max-width: 768px) {
+	.Body {
+		font-size: 48px;
+		height: 320px;
+	}
+}
+
+@media (max-width: 567px) {
+	.Body {
+		font-size: 28px;
+		height: 280px;
+	}
+}
