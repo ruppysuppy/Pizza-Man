@@ -9,13 +9,13 @@
 
 .PizzaSlice {
 	height: 100px;
-	animation: loading-slice 4s linear infinite;
+	animation: loading-slice 2s linear infinite;
 }
 
 .Text {
 	color: white;
 	margin-left: 24px;
-	animation: loading-text 4s linear infinite;
+	animation: loading-text 2s linear infinite;
 }
 
 /* media queries */
