@@ -12,6 +12,9 @@ function Terms() {
             <PageInfo>
                 TERMS & CONDITIONS
             </PageInfo>
+            <div className="container my-5 py-2">
+
+            </div>
         </>
     )
 }

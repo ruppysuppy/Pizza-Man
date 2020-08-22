@@ -12,6 +12,9 @@ function Privacy() {
             <PageInfo>
                 PRIVACY POLICY
             </PageInfo>
+            <div className="container my-5 py-2">
+
+            </div>
         </>
     )
 }
