@@ -7,7 +7,7 @@ import wave from '../../../static/img/wave.png'
 const createParallax = () => {
     const scrollHeight = window.pageYOffset
     const elem = document.getElementById("parallax-title")
-    elem.style.bottom = -(scrollHeight * 0.6) + "px"
+    elem.style.bottom = -(scrollHeight * 0.75) + "px"
 }
 
 function PageInfo(props) {

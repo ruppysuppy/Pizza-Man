@@ -74,7 +74,7 @@ function Footer() {
                 </div>
                 <div className={`mb-2 ${style.Row}`}>
                     <span className={style.Copyright}>
-                        Copyright © {new Date().getFullYear()} Bubilant FoodWorks Ltd. | All Rights Reserved
+                        Copyright © {new Date().getFullYear()} Tap FoodWorks Ltd. | All Rights Reserved
                     </span>
                 </div>
             </div>

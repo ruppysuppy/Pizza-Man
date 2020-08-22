@@ -18,7 +18,7 @@ function Item(props) {
                             Customize
                         </button>
                         <h5 className={`my-auto font-weight-light ${style.Price}`}>
-                            <strong>Rs.</strong> {totalPrice}
+                            <strong>₹</strong> {totalPrice}
                         </h5>
                     </div>
                 </div>
