@@ -68,81 +68,81 @@
 
 @keyframes pizza2 {
 	0% {
-		transform: translate(20%, -20%);
+		transform: translate(20%, -20%) rotateZ(90deg);
 		opacity: 0;
 	}
 	10% {
-		transform: translate(20%, -20%);
+		transform: translate(20%, -20%) rotateZ(90deg);
 		opacity: 0;
 	}
 	20% {
-		transform: translate(0%, 0%);
+		transform: translate(0%, 0%) rotateZ(90deg);
 		opacity: 1;
 	}
 	60% {
-		transform: translate(0%, 0%);
+		transform: translate(0%, 0%) rotateZ(90deg);
 		opacity: 1;
 	}
 	70% {
-		transform: translate(20%, -20%);
+		transform: translate(20%, -20%) rotateZ(90deg);
 		opacity: 0;
 	}
 	100% {
-		transform: translate(20%, -20%);
+		transform: translate(20%, -20%) rotateZ(90deg);
 		opacity: 0;
 	}
 }
 
 @keyframes pizza3 {
 	0% {
-		transform: translate(20%, 20%);
+		transform: translate(20%, 20%) rotateZ(180deg);
 		opacity: 0;
 	}
 	20% {
-		transform: translate(20%, 20%);
+		transform: translate(20%, 20%) rotateZ(180deg);
 		opacity: 0;
 	}
 	30% {
-		transform: translate(0%, 0%);
+		transform: translate(0%, 0%) rotateZ(180deg);
 		opacity: 1;
 	}
 	70% {
-		transform: translate(0%, 0%);
+		transform: translate(0%, 0%) rotateZ(180deg);
 		opacity: 1;
 	}
 	80% {
-		transform: translate(20%, 20%);
+		transform: translate(20%, 20%) rotateZ(180deg);
 		opacity: 0;
 	}
 	100% {
-		transform: translate(20%, 20%);
+		transform: translate(20%, 20%) rotateZ(180deg);
 		opacity: 0;
 	}
 }
 
 @keyframes pizza4 {
 	0% {
-		transform: translate(-20%, 20%);
+		transform: translate(-20%, 20%) rotateZ(-90deg);
 		opacity: 0;
 	}
 	30% {
-		transform: translate(-20%, 20%);
+		transform: translate(-20%, 20%) rotateZ(-90deg);
 		opacity: 0;
 	}
 	40% {
-		transform: translate(0%, 0%);
+		transform: translate(0%, 0%) rotateZ(-90deg);
 		opacity: 1;
 	}
 	80% {
-		transform: translate(0%, 0%);
+		transform: translate(0%, 0%) rotateZ(-90deg);
 		opacity: 1;
 	}
 	90% {
-		transform: translate(-20%, 20%);
+		transform: translate(-20%, 20%) rotateZ(-90deg);
 		opacity: 0;
 	}
 	100% {
-		transform: translate(-20%, 20%);
+		transform: translate(-20%, 20%) rotateZ(-90deg);
 		opacity: 0;
 	}
 }

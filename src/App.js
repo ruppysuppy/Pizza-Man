@@ -1,21 +1,22 @@
-import React, { Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom';
 
-import About from './components/Pages/About/About';
-import Disclaimer from './components/Pages/Disclaimer/Disclaimer';
-import Error404 from './components/Pages/404/Error404';
-import FAQ from './components/Pages/FAQ/FAQ';
-import Home from './components/Pages/Home/Home';
 import Layout from './components/UI/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
-import Menu from './components/Pages/Menu/Menu';
-import Privacy from './components/Pages/Privacy/Privacy';
-import Terms from './components/Pages/Terms/Terms';
+
+const About = lazy(() => import('./components/Pages/About/About'))
+const Disclaimer = lazy(() => import('./components/Pages/Disclaimer/Disclaimer'))
+const Error404 = lazy(() => import('./components/Pages/404/Error404'))
+const FAQ = lazy(() => import('./components/Pages/FAQ/FAQ'))
+const Home = lazy(() => import('./components/Pages/Home/Home'))
+const Menu = lazy(() => import('./components/Pages/Menu/Menu'))
+const Privacy = lazy(() => import('./components/Pages/Privacy/Privacy'))
+const Terms = lazy(() => import('./components/Pages/Terms/Terms'))
 
 function App() {
   return (
     <>
-      <Suspense fallback={Loader}>
+      <Suspense fallback={<Loader />}>
         <Layout>
           <Switch>
             <Route path="/" exact component={Home} />

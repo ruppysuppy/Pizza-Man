@@ -1,6 +1,6 @@
 import React from 'react'
 
-import slice from '../../../static/img/Loader/slice.png'
+import slice from '../../../static/img/Loader/slice.svg'
 import style from './loader.module.css'
 
 // Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
