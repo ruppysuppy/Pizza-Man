@@ -1,31 +1,37 @@
 .Body {
 	background-color: #ddd;
-	padding: 8px 12px;
-	margin: 8px 0;
+	display: inline-block;
+	padding: 0;
 	border-radius: 8px;
+	margin: 8px 32px 8px 0;
+	width: 250px;
+	overflow: hidden;
+	transition: 0.2s;
+}
+
+.ImgContainer {
+	height: 150px;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ImgContainer .Image {
+	background-position: center;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	transition: 0.2s;
+}
+
+.Body:hover .ImgContainer .Image {
+	transform: scale(1.2);
 }
 
 .Row {
 	display: flex;
-}
-
-.BtnCustomize {
-	border: none;
-	outline: none !important;
-	width: max-content;
-	font-weight: 700;
-	margin-left: 12px;
-	padding: 4px 8px;
-	border-radius: 6px;
-	background-color: rgba(0, 0, 0, 0.5);
-	color: white;
-	transition: 0.1s;
-}
-
-.BtnCustomize:hover,
-.CartBtn:hover {
-	background-color: rgba(0, 0, 0, 0.8);
-	color: white;
 }
 
 .Price {
@@ -38,17 +44,51 @@
 	display: flex;
 }
 
-.CartBtn {
-	height: 40px;
-	width: 40px;
-	border-radius: 50%;
-	font-size: 24px;
+.ItemActionBtn {
+	height: 28px;
+	width: 28px;
+	border-radius: 2px;
+	font-size: 16px;
 	border: none;
 	outline: none !important;
 	background-color: rgba(0, 0, 0, 0.5);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 8px;
+	margin: 0 8px;
 	transition: 0.1s;
+}
+
+.ItemActionBtn:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+}
+
+/* media queries */
+@media (max-width: 1400px) {
+	.Body {
+		margin: 8px 40px 8px 0;
+		width: 200px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.Body {
+		margin: 8px 16px 8px 0;
+		width: 185px;
+	}
+}
+
+@media (max-width: 992px) {
+	.Body {
+		margin: 8px 24px 8px 0;
+		width: 200px;
+	}
+}
+
+@media (max-width: 768px) {
+	.Body {
+		margin: 8px 0;
+		width: 100%;
+	}
 }

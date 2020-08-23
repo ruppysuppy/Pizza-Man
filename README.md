@@ -38,6 +38,7 @@ Data needs to be stored in the following format (can hold as many pizzas or cate
 			{
 				desc: "PIZZA DESCRIPTION",
 				id: "ID",
+				img: "IMAGE LINK"
 				name: "PIZZA NAME",
 				price: 100, // PRICE
 			},

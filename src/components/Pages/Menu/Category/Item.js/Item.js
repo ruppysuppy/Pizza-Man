@@ -3,32 +3,33 @@ import React, { useState } from 'react'
 import style from './item.module.css'
 
 function Item(props) {
-    // temporary styling, needs to be updated
-    const { name, desc, price } = props
-    const [totalPrice, setTotalPrice] = useState(price)
+    const { name, desc, imgLink, price } = props
 
     return (
         <div className={style.Body}>
-            <div className={style.Row}>
-                <div className="container">
-                    <h3 className="font-weight-light">{name}</h3>
-                    <h5 className="font-italic font-weight-lighter">{desc}</h5>
-                    <div className="row">
-                        <button className={style.BtnCustomize}>
-                            Customize
-                        </button>
-                        <h5 className={`my-auto font-weight-light ${style.Price}`}>
-                            <strong>₹</strong> {totalPrice}
-                        </h5>
+            <div className={style.ImgContainer}>
+                <div className={style.Image} style={{ backgroundImage: `url(${imgLink})` }} />
+            </div>
+            <div className="container">
+                <h4 className="font-weight-light pt-2">{name}</h4>
+                <h6 className="font-italic font-weight-lighter">{desc}</h6>
+                <div className="row">
+                    <div className={`mb-2 ${style.Row}`}>
+                        <h6 className={`my-auto font-weight-light ${style.Price}`}>
+                            <strong>₹</strong> {price}
+                        </h6>
+                        <div className={`my-auto ml-auto ${style.BtnHolder}`}>
+                            <button className={style.ItemActionBtn} >
+                                <i className="fa fa-minus" aria-hidden="true" />
+                            </button>
+                            <h6 className={`my-auto mx-1 font-weight-light ${style.Price}`}>
+                                <strong> 0 </strong>
+                            </h6>
+                            <button className={style.ItemActionBtn}>
+                                <i className="fa fa-plus" aria-hidden="true" />
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div className={`my-auto ${style.BtnHolder}`}>
-                    <button className={style.CartBtn} >
-                        <i className="fa fa-minus" aria-hidden="true" />
-                    </button>
-                    <button className={style.CartBtn}>
-                        <i className="fa fa-plus" aria-hidden="true" />
-                    </button>
                 </div>
             </div>
         </div>
