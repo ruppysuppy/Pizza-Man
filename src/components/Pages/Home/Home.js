@@ -5,10 +5,7 @@ import Button from '../../UI/Button/Button'
 
 import style from './home.module.css'
 
-import BG1 from '../../../static/img/HomeBg/1.jpg'
-import BG2 from '../../../static/img/HomeBg/2.jfif'
-import BG3 from '../../../static/img/HomeBg/3.jpg'
-import BG4 from '../../../static/img/HomeBg/4.jpg'
+import BG from '../../../static/img/HomeBg/1.jpg'
 
 import Logo from '../../../static/img/Logo.png'
 
@@ -19,22 +16,7 @@ function Home() {
     return (
         <>
             <div className={style.CarouselContainer}>
-                <div className="carousel slide" data-ride="carousel" data-pause="false">
-                    <div className="carousel-inner">
-                        <div className="carousel-item active" data-interval="3000" >
-                            <div className={style.ImgContainer} style={{ backgroundImage: `url(${BG1})` }} />
-                        </div>
-                        <div className="carousel-item" data-interval="3000" >
-                            <div className={style.ImgContainer} style={{ backgroundImage: `url(${BG2})` }} />
-                        </div>
-                        <div className="carousel-item" data-interval="3000" >
-                            <div className={style.ImgContainer} style={{ backgroundImage: `url(${BG3})` }} />
-                        </div>
-                        <div className="carousel-item" data-interval="3000" >
-                            <div className={style.ImgContainer} style={{ backgroundImage: `url(${BG4})` }} />
-                        </div>
-                    </div>
-                </div>
+                <div className={style.ImgContainer} style={{ backgroundImage: `url(${BG})` }} />
             </div>
             <div className={`pt-5 ${style.BodyContainer}`}>
                 <div className="container mt-5 pt-5">
