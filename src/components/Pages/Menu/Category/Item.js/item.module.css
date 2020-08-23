@@ -30,6 +30,13 @@
 	transform: scale(1.2);
 }
 
+.Description {
+	display: inline-block;
+	font-size: smaller;
+	line-height: 100%;
+	margin-bottom: 12px;
+}
+
 .Row {
 	display: flex;
 }

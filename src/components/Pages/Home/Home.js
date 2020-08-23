@@ -15,10 +15,9 @@ function Home() {
 
     return (
         <>
-            <div className={style.CarouselContainer}>
-                <div className={style.ImgContainer} style={{ backgroundImage: `url(${BG})` }} />
-            </div>
-            <div className={`pt-5 ${style.BodyContainer}`}>
+            <div
+                className={`pt-5 ${style.BodyContainer}`}
+                style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${BG})` }}>
                 <div className="container mt-5 pt-5">
                     <img src={Logo} className={style.Logo} alt="Logo" />
                     <h2 className={style.H2}>Pizza Man Online Ordering</h2>

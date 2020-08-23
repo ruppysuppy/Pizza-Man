@@ -2,7 +2,7 @@
 
 This is an E-Commerce website for ordering Pizza Online
 
-### Libraries used
+### Tools used
 
 1. React: To create the Single Page App
 2. React-Router: For Routing
@@ -38,7 +38,7 @@ Data needs to be stored in the following format (can hold as many pizzas or cate
 			{
 				desc: "PIZZA DESCRIPTION",
 				id: "ID",
-				img: "IMAGE LINK"
+				img: "IMAGE LINK",
 				name: "PIZZA NAME",
 				price: 100, // PRICE
 			},

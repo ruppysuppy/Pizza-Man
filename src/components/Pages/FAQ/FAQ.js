@@ -5,7 +5,6 @@ import PageInfo from '../../UI/PageInfo/PageInfo'
 
 import faq from './faqList'
 
-import style from './faq.module.css'
 
 function FAQ() {
     // Scroll To Top
@@ -20,7 +19,7 @@ function FAQ() {
             <PageInfo>
                 FAQ
             </PageInfo>
-            <div className={`container my-5 py-4 ${style.Body}`}>
+            <div className="container my-5 py-4">
                 {display}
             </div>
         </>
