@@ -57,10 +57,8 @@ const mapStateToProps = state => ({
     error: state.menu.error
 })
 
-const mapDispatchToProps = dispatch => {
-    return {
-        initMenu: () => dispatch(actions.initMenu())
-    }
-}
+const mapDispatchToProps = dispatch => ({
+    initMenu: () => dispatch(actions.initMenu())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu)

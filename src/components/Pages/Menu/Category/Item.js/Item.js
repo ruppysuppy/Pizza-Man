@@ -1,9 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import * as actions from '../../../../../store/actions/actions'
 
 import style from './item.module.css'
 
 function Item(props) {
-    const { name, desc, imgLink, price } = props
+    const { name, desc, id, imgLink, price } = props
+    const item = {
+        id: id,
+        name: name,
+        price: price,
+        desc: desc
+    }
 
     return (
         <div className={style.Body}>
@@ -22,13 +31,14 @@ function Item(props) {
                             <strong>₹</strong> {price}
                         </span>
                         <div className={`my-auto ml-auto ${style.BtnHolder}`}>
-                            <button className={style.ItemActionBtn} >
+                            <button className={style.ItemActionBtn} onClick={() => props.removeItemFromCart(item)}>
                                 <i className="fa fa-minus" aria-hidden="true" />
                             </button>
                             <span className={`my-auto mx-1 font-weight-light ${style.Price}`}>
-                                <strong> 0 </strong>
+                                <strong> {id in props.itemMap ?
+                                    props.cart[props.itemMap[id]].quantity : 0} </strong>
                             </span>
-                            <button className={style.ItemActionBtn}>
+                            <button className={style.ItemActionBtn} onClick={() => props.addItemToCart(item)}>
                                 <i className="fa fa-plus" aria-hidden="true" />
                             </button>
                         </div>
@@ -39,4 +49,14 @@ function Item(props) {
     )
 }
 
-export default Item
+const mapStateToProps = state => ({
+    cart: state.cart.cart,
+    itemMap: state.cart.itemMap
+})
+
+const mapDispatchToProps = dispatch => ({
+    addItemToCart: item => dispatch(actions.addItemToCart(item)),
+    removeItemFromCart: item => dispatch(actions.removeItemFromCart(item)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Item)

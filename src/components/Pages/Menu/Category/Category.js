@@ -13,6 +13,7 @@ function Category(props) {
         desc={item.desc}
         price={item.price}
         imgLink={item.img}
+        id={item.id}
     />)
 
     return (
