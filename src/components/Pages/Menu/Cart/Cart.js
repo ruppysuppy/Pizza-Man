@@ -44,9 +44,10 @@ function Cart(props) {
                         </div>
                     </> : null}
             </div>
-            <div className={style.BodyMobile}>
-                GO TO CART
-            </div>
+            {props.cart.length > 0 ?
+                <div className={style.BodyMobile}>
+                    GO TO CART
+            </div> : null}
         </>
     )
 }

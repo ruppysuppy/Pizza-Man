@@ -28,7 +28,7 @@ function Menu(props) {
         <>
             <div className={`container mt-5 pt-2 ${style.Body}`}>
                 <h1 className="display-6 mb-0">
-                    MENU
+                    <strong>MENU</strong>
                 </h1>
                 <div className={`mt-1 mb-4 ${style.HR}`} />
                 <div className="row">
