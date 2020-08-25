@@ -18,7 +18,7 @@ function Category(props) {
 
     return (
         <div className="my-4">
-            <div className="row">
+            <div className={style.Row}>
                 <h2 className={style.H2}>{name}</h2>
                 <div className={`my-auto ${style.HR}`} />
             </div>

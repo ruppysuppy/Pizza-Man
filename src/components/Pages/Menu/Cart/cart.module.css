@@ -1,0 +1,105 @@
+.Body {
+	background-color: #ddd;
+	position: sticky;
+	top: 64px;
+}
+
+.ClearCartBtn {
+	border: none;
+	outline: none !important;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.CartItemBody {
+	height: 380px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-bottom: 84px;
+	margin-top: 8px;
+}
+
+.CartUtil {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #ddd;
+}
+
+.Price {
+	display: inline-block;
+	margin-top: 8px;
+	margin-bottom: 12px;
+}
+
+.CheckoutBtn {
+	padding: 8px 0;
+	width: 100%;
+	background-color: #724cf9;
+	color: white;
+	border: none;
+	outline: none !important;
+	box-sizing: border-box;
+	transition: 0.1s;
+}
+
+.CheckoutBtn:hover {
+	background-color: #5a2ff3;
+}
+
+.EmptyBody {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 400px;
+	font-size: 32px;
+	font-weight: 700;
+}
+
+.BodyMobile {
+	background-color: #724cf9;
+	color: white;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	padding: 12px;
+	text-align: center;
+	display: none;
+}
+
+.BodyMobile:active,
+.BodyMobile:focus,
+.BodyMobile:hover {
+	background-color: #5a2ff3;
+}
+
+/* ScrollBar */
+.CartItemBody::-webkit-scrollbar {
+	width: 2px;
+}
+
+.CartItemBody::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.CartItemBody::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 1px;
+}
+
+.CartItemBody::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+@media (max-width: 992px) {
+	.Body {
+		display: none;
+	}
+	.BodyMobile {
+		display: block;
+	}
+}

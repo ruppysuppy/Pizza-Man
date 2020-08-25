@@ -6,37 +6,40 @@ import * as actions from '../../../../../store/actions/actions'
 import style from './cartItem.module.css'
 
 function CartItem(props) {
-    const { id, name, price, desc } = props
+    const { id, name, price, desc, imgLink } = props
 
     const item = {
         id: id,
         name: name,
         price: price,
-        desc: desc
+        desc: desc,
+        imgLink: imgLink
     }
 
     return (
-        <div>
+        <div className={style.Body}>
             <div>
-                {name}
+                <strong> {name} </strong>
             </div>
-            <div>
+            <div className={`font-italic font-weight-lighter text-muted ${style.Description}`}>
                 {desc}
             </div>
-            <div>
-                Price: {price}
-            </div>
-            <div className={`my-auto ml-auto ${style.BtnHolder}`}>
-                <button className={style.ItemActionBtn} onClick={() => props.removeItemFromCart(item)}>
-                    <i className="fa fa-minus" aria-hidden="true" />
-                </button>
-                <span className={`my-auto mx-1 font-weight-light ${style.Price}`}>
-                    <strong> {id in props.itemMap ?
-                        props.cart[props.itemMap[id]].quantity : 0} </strong>
-                </span>
-                <button className={style.ItemActionBtn} onClick={() => props.addItemToCart(item)}>
-                    <i className="fa fa-plus" aria-hidden="true" />
-                </button>
+            <div className="row mt-2">
+                <div className={style.Price}>
+                    Price: ₹ {price}
+                </div>
+                <div className={`my-auto ml-auto d-inline-block ${style.BtnHolder}`}>
+                    <button className={style.ItemActionBtn} onClick={() => props.removeItemFromCart(item)}>
+                        <i className="fa fa-minus" aria-hidden="true" />
+                    </button>
+                    <span className={`my-auto mx-1 font-weight-light ${style.Quantity}`}>
+                        <strong> {id in props.itemMap ?
+                            props.cart[props.itemMap[id]].quantity : 0} </strong>
+                    </span>
+                    <button className={style.ItemActionBtn} onClick={() => props.addItemToCart(item)}>
+                        <i className="fa fa-plus" aria-hidden="true" />
+                    </button>
+                </div>
             </div>
         </div>
     )

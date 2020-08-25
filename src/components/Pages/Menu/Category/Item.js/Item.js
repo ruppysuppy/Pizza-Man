@@ -11,7 +11,8 @@ function Item(props) {
         id: id,
         name: name,
         price: price,
-        desc: desc
+        desc: desc,
+        imgLink: imgLink
     }
 
     return (
@@ -24,7 +25,7 @@ function Item(props) {
                     <strong>{name}</strong>
                 </span>
                 <br />
-                <span className={`font-italic font-weight-lighter ${style.Description}`}>{desc}</span>
+                <span className={`font-italic font-weight-lighter text-muted ${style.Description}`}>{desc}</span>
                 <div className="row">
                     <div className={`mb-2 ${style.Row}`}>
                         <span className={`my-auto font-weight-light ${style.Price}`}>

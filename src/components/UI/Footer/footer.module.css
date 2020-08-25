@@ -139,6 +139,12 @@
 }
 
 /* media queries */
+@media (max-width: 992px) {
+	.Copyright {
+		padding-bottom: 48px;
+	}
+}
+
 @media (max-width: 768px) {
 	.Copyright {
 		font-size: small;

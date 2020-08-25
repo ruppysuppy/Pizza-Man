@@ -1,7 +1,26 @@
-.BtnHolder {
+.Body {
+	padding: 12px 0;
+	border-bottom: 1px solid black;
+}
+
+.Body:first-of-type {
+	border-top: 1px solid black;
+}
+
+.Description {
+	font-size: small;
+}
+
+.Price {
 	display: inline-block;
 	width: max-content;
-	display: flex;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.BtnHolder {
+	width: max-content;
+	display: flex !important;
 }
 
 .ItemActionBtn {
@@ -24,6 +43,6 @@
 	color: white;
 }
 
-.Price {
+.Quantity {
 	width: max-content;
 }

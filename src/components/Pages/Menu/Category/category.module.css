@@ -1,3 +1,7 @@
+.Row {
+	display: flex;
+}
+
 .H2 {
 	display: inline-block;
 	width: max-content;

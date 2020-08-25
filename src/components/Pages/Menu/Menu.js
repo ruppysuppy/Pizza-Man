@@ -41,7 +41,7 @@ function Menu(props) {
                                 <Spinner />
                                 : display}
                     </div>
-                    <div className="col-lg-4 mb-5 border">
+                    <div className="col-lg-4 mb-5">
                         <Cart />
                     </div>
                 </div>

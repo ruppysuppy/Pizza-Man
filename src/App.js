@@ -5,6 +5,7 @@ import Layout from './components/UI/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
 
 const About = lazy(() => import('./components/Pages/About/About'))
+const Cart = lazy(() => import('./components/Pages/CartPage/CartPage'))
 const Disclaimer = lazy(() => import('./components/Pages/Disclaimer/Disclaimer'))
 const Error404 = lazy(() => import('./components/Pages/404/Error404'))
 const FAQ = lazy(() => import('./components/Pages/FAQ/FAQ'))
@@ -21,6 +22,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
+            <Route path="/cart" component={Cart} />
             <Route path="/disclaimer" component={Disclaimer} />
             <Route path="/faq" component={FAQ} />
             <Route path="/menu" component={Menu} />
