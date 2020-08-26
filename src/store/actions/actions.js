@@ -9,3 +9,6 @@ export {
 export {
     placeOrder
 } from './order'
+export {
+    authChangedHandler
+} from './auth'
