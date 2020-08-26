@@ -38,16 +38,18 @@ function Cart(props) {
                             <strong className={`mx-2 ${style.Price}`}> Total: ₹ {props.price}</strong>
                             <Link to="/cart">
                                 <button className={style.CheckoutBtn}>
-                                    CHECKOUT
-                        </button>
+                                    GO TO CART
+                                </button>
                             </Link>
                         </div>
                     </> : null}
             </div>
             {props.cart.length > 0 ?
-                <div className={style.BodyMobile}>
-                    GO TO CART
-            </div> : null}
+                <Link to="/cart">
+                    <div className={style.BodyMobile}>
+                        GO TO CART
+                    </div>
+                </Link> : null}
         </>
     )
 }

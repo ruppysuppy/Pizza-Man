@@ -34,7 +34,7 @@ function Menu(props) {
                 <div className="row">
                     <div className="col-lg-8">
                         {error ?
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-danger mt-4" role="alert">
                                 <strong>{error}</strong>
                             </div>
                             : isLoading ?

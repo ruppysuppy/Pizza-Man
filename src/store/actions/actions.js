@@ -6,3 +6,6 @@ export {
     addItemToCart,
     removeItemFromCart
 } from './cart'
+export {
+    placeOrder
+} from './order'

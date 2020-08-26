@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 import CartPageItem from './CartPageItem/CartPageItem'
+import Button from '../../UI/Button/Button'
 
 import style from './cartPage.module.css'
 
@@ -22,9 +23,14 @@ function CartPage(props) {
             <div className="mt-2">
                 {display}
             </div>
-            <div className="my-3">
+            <div className="mt-3">
                 <strong>Total Price: ₹ {props.price}</strong>
             </div>
+            <Link to="/checkout">
+                <Button>
+                    CHECKOUT
+                </Button>
+            </Link>
         </div>
     )
 }
