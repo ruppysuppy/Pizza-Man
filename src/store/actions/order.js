@@ -32,7 +32,7 @@ export const placeOrder = (data, user) => {
         const dataRef = db.collection('orders').doc()
         dataRef.set({
             ...data,
-            uId: user.uId
+            uid: user.uid
         })
             .then(response => {
                 console.log(response)

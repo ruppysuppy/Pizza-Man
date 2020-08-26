@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
 
 import Button from '../../UI/Button/Button'
+import Address from './Address/Address'
+import AddressForm from './AddressForm/AddressForm'
 
 import * as actions from '../../../store/actions/actions'
 
@@ -14,17 +16,24 @@ function Checkout(props) {
             name: item.name,
             quantity: item.quantity,
             itemPrice: item.price,
-            price: item.quantity * item.price
+            price: item.quantity * item.price,
+            address: props.address
         }))
     }
-    const user = {
-        uId: "d78ui2as53gd78am"
-    }
+    const user = props.user
+
+    const [addressFormShown, setAddressFormShown] = useState(false)
+    useEffect(() => {
+        props.getAddress(user)
+    }, [user])
+
 
     return (
         <div className={`container mt-5 pt-2 ${style.Body}`}>
             {props.cart.length === 0 ?
                 <Redirect to="./menu" /> : null}
+            {!user ?
+                <Redirect to="./login" /> : null}
             <h1 className="display-6 mb-0">
                 <strong>CHECKOUT</strong>
             </h1>
@@ -35,6 +44,16 @@ function Checkout(props) {
                     <h2 className={style.H2}>Location</h2>
                     <div className={`my-auto ${style.HRLight}`} />
                 </div>
+                <Address {...props.address} />
+                {props.error ?
+                    <div className="alert alert-danger mt-4" role="alert">
+                        <strong>{props.error}</strong>
+                    </div>
+                    : null}
+                {addressFormShown ? <AddressForm /> :
+                    <button onClick={() => setAddressFormShown(!addressFormShown)}>
+                        Update Address
+                </button>}
             </div>
             <div className="my-4">
                 <div className={style.Row}>
@@ -42,33 +61,33 @@ function Checkout(props) {
                     <div className={`my-auto ${style.HRLight}`} />
                 </div>
                 <form>
-                    <div class="col-12 mt-4">
-                        <div class="form-check my-2">
-                            <input class="form-check-input" type="radio" name="ModeOfPayment" id="CashOnDelivery" required />
-                            <label class="form-check-label" for="CashOnDelivery">
+                    <div className="col-12 mt-4">
+                        <div className="form-check my-2">
+                            <input className="form-check-input" type="radio" name="ModeOfPayment" id="CashOnDelivery" required />
+                            <label className="form-check-label" htmlFor="CashOnDelivery">
                                 Cash on Delivery
                             </label>
                         </div>
-                        <div class="form-check my-2">
-                            <input class="form-check-input" type="radio" name="ModeOfPayment" id="Wallet" disabled required />
-                            <label class="form-check-label" for="Wallet">
+                        <div className="form-check my-2">
+                            <input className="form-check-input" type="radio" name="ModeOfPayment" id="Wallet" disabled required />
+                            <label className="form-check-label" htmlFor="Wallet">
                                 Wallet
                             </label>
                         </div>
-                        <div class="form-check my-2">
-                            <input class="form-check-input" type="radio" name="ModeOfPayment" id="CreditOrDebitCard" disabled required />
-                            <label class="form-check-label" for="CreditOrDebitCard">
+                        <div className="form-check my-2">
+                            <input className="form-check-input" type="radio" name="ModeOfPayment" id="CreditOrDebitCard" disabled required />
+                            <label className="form-check-label" htmlFor="CreditOrDebitCard">
                                 Credit / Debit Card
                             </label>
                         </div>
-                        <div class="form-check my-2">
-                            <input class="form-check-input" type="radio" name="ModeOfPayment" id="NetBanking" disabled required />
-                            <label class="form-check-label" for="NetBanking">
+                        <div className="form-check my-2">
+                            <input className="form-check-input" type="radio" name="ModeOfPayment" id="NetBanking" disabled required />
+                            <label className="form-check-label" htmlFor="NetBanking">
                                 Net Banking
                             </label>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div className="col-12">
                         <Button type="button" onClick={() => props.placeOrder(data, user)}>
                             Place Order
                         </Button>
@@ -81,11 +100,15 @@ function Checkout(props) {
 
 const mapStateToProps = state => ({
     cart: state.cart.cart,
-    price: state.cart.totalPrice
+    price: state.cart.totalPrice,
+    user: state.auth.user,
+    address: state.auth.address,
+    error: state.auth.error
 })
 
 const mapDispatchToProps = dispatch => ({
-    placeOrder: (data, user) => dispatch(actions.placeOrder(data, user))
+    placeOrder: (data, user) => dispatch(actions.placeOrder(data, user)),
+    getAddress: (user) => dispatch(actions.authGetAddress(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
