@@ -78,11 +78,17 @@ export const authAddAddressFail = () => {
     }
 }
 
-export const authAddAddress = (user, address) => {
+export const authAddAddress = (user, address, isNewData = true) => {
     return dispatch => {
         dispatch(authAddAddressInit())
-        db.collection('users').doc(user.uid).set({ address: address })
-            .then(() => dispatch(authGetAddressSuccess(address)))
-            .catch(error => dispatch(authGetAddressFail(error.message)))
+        if (isNewData) {
+            db.collection('users').doc(user.uid).set({ ...address })
+                .then(() => dispatch(authGetAddressSuccess(address)))
+                .catch(error => dispatch(authGetAddressFail(error.message)))
+        } else {
+            db.collection('users').doc(user.uid).update({ ...address })
+                .then(() => dispatch(authGetAddressSuccess(address)))
+                .catch(error => dispatch(authGetAddressFail(error.message)))
+        }
     }
 }

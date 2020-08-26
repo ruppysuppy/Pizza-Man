@@ -50,8 +50,8 @@ function Checkout(props) {
                         <strong>{props.error}</strong>
                     </div>
                     : null}
-                {addressFormShown ? <AddressForm /> :
-                    <button onClick={() => setAddressFormShown(!addressFormShown)}>
+                {addressFormShown ? <AddressForm {...props.address} hideAddressForm={() => setAddressFormShown(false)} /> :
+                    <button onClick={() => setAddressFormShown(true)}>
                         Update Address
                 </button>}
             </div>

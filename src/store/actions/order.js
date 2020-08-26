@@ -34,9 +34,8 @@ export const placeOrder = (data, user) => {
             ...data,
             uid: user.uid
         })
-            .then(response => {
-                console.log(response)
-                dispatch(placeOrderSuccess)
+            .then(() => {
+                dispatch(placeOrderSuccess())
             })
             .catch((error) => dispatch(placeOrderFail(error.message)))
     }
