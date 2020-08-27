@@ -5,6 +5,12 @@ import * as actionTypes from './actionTypes'
 
 const db = firebase.firestore()
 
+export const placeOrderInitialize = () => {
+    return {
+        type: actionTypes.PLACE_ORDER_INIT
+    }
+}
+
 export const placeOrderInit = () => {
     return {
         type: actionTypes.PLACE_ORDER
@@ -26,14 +32,11 @@ export const placeOrderFail = (error) => {
     }
 }
 
-export const placeOrder = (data, user) => {
+export const placeOrder = (data) => {
     return dispatch => {
         dispatch(placeOrderInit())
         const dataRef = db.collection('orders').doc()
-        dataRef.set({
-            ...data,
-            uid: user.uid
-        })
+        dataRef.set(data)
             .then(() => {
                 dispatch(placeOrderSuccess())
             })

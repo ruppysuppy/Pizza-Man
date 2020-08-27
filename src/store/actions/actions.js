@@ -7,7 +7,8 @@ export {
     removeItemFromCart
 } from './cart'
 export {
-    placeOrder
+    placeOrder,
+    placeOrderInitialize
 } from './order'
 export {
     authChangedHandler

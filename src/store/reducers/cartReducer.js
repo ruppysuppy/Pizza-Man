@@ -1,15 +1,19 @@
 import * as actionTypes from '../actions/actionTypes'
 
+export const GST_RATE = 0.02
+
 const initialState = {
     cart: [],
     itemMap: {},
-    totalPrice: 0
+    totalPrice: 0,
+    gst: 0
 }
 
 const reducer = (state = initialState, action) => {
     const { type, payload } = action
     let updatedCart = [...state.cart]
     let updatedPrice = state.totalPrice
+    let updatedGst = state.gst
     const updatedMap = { ...state.itemMap }
 
     switch (type) {
@@ -27,11 +31,13 @@ const reducer = (state = initialState, action) => {
                 })
             }
             updatedPrice += payload.item.price
+            updatedGst = updatedPrice * GST_RATE
             return {
                 ...state,
                 cart: updatedCart,
                 itemMap: updatedMap,
-                totalPrice: updatedPrice
+                totalPrice: updatedPrice,
+                gst: updatedGst
             }
 
         case actionTypes.REMOVE_ITEM_FROM_CART:
@@ -39,6 +45,7 @@ const reducer = (state = initialState, action) => {
                 return state
             }
             updatedPrice -= payload.item.price
+            updatedGst = updatedPrice * GST_RATE
             updatedCart[state.itemMap[payload.item.id]].quantity -= 1
             if (updatedCart[state.itemMap[payload.item.id]].quantity === 0) {
                 updatedCart = updatedCart.filter(item => item.id !== payload.item.id)
@@ -52,7 +59,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 cart: updatedCart,
                 itemMap: updatedMap,
-                totalPrice: updatedPrice
+                totalPrice: updatedPrice,
+                gst: updatedGst
             }
 
         default:

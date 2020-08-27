@@ -7,6 +7,7 @@
 	border-radius: 20px;
 	border: none;
 	outline: none !important;
+	transition: 0.1s;
 }
 
 .Input:hover {
