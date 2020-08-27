@@ -3,13 +3,23 @@ import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
 
 import Button from '../../UI/Button/Button'
-import Address from './Address/Address'
+import Address from '../../UI/Address/Address'
 import AddressForm from './AddressForm/AddressForm'
 import Spinner from '../../UI/Spinner/Spinner'
+import RadioButton from '../../UI/RadioButton/RadioButton'
 
 import * as actions from '../../../store/actions/actions'
 
 import style from './checkout.module.css'
+
+
+const placeOrderHandler = (address, modeSelected, data, placeOrder, placeOrderFail) => {
+    if (address && modeSelected) {
+        placeOrder(data)
+    } else {
+        placeOrderFail("Please make sure that all fields are filled")
+    }
+}
 
 function Checkout(props) {
     const order = props.cart.map(item => ({
@@ -28,14 +38,18 @@ function Checkout(props) {
             total: props.price + props.gst
         }
     }
-    console.log(data)
+
+    const { placeOrderInitialize, getAddress, user } = props
+
     const [addressFormShown, setAddressFormShown] = useState(false)
+    const [modeSelected, setModeSelected] = useState(false)
+
     useEffect(() => {
-        props.getAddress(props.user)
-    }, [props.user])
+        getAddress(user)
+    }, [user, getAddress])
     useEffect(() => {
-        return () => props.placeOrderInitialize()
-    }, [])
+        return () => placeOrderInitialize()
+    }, [placeOrderInitialize])
 
     if (props.orderPlaced) {
         props.clearCart()
@@ -48,6 +62,10 @@ function Checkout(props) {
                 <>
                     {props.orderPlaced ?
                         <div>
+                            <h1 className="display-6 mb-0">
+                                <strong>ORDER PLACED</strong>
+                            </h1>
+                            <div className={`mt-1 mb-4 ${style.HR}`} />
                             <h1 className="display-6 mt-4">
                                 Your yummy pizza will arrive at your doorstep soon! :)
                             </h1>
@@ -78,9 +96,14 @@ function Checkout(props) {
                                             : null}
 
                                         {addressFormShown ? <AddressForm {...props.address} hideAddressForm={() => setAddressFormShown(false)} /> :
-                                            <button onClick={() => setAddressFormShown(true)}>
-                                                Update Address
-                            </button>}
+                                            props.addressError ?
+                                                <button onClick={() => setAddressFormShown(true)}>
+                                                    Add Address
+                                                </button> :
+                                                <button onClick={() => setAddressFormShown(true)}>
+                                                    Update Address
+                                                </button>
+                                        }
                                     </>}
                             </div>
                             <div className="my-4">
@@ -90,33 +113,28 @@ function Checkout(props) {
                                 </div>
                                 <form>
                                     <div className="col-12 mt-4">
-                                        <div className="form-check my-2">
-                                            <input className="form-check-input" type="radio" name="ModeOfPayment" id="CashOnDelivery" required />
-                                            <label className="form-check-label" htmlFor="CashOnDelivery">
-                                                Cash on Delivery
-                                            </label>
-                                        </div>
-                                        <div className="form-check my-2">
-                                            <input className="form-check-input" type="radio" name="ModeOfPayment" id="Wallet" disabled required />
-                                            <label className="form-check-label" htmlFor="Wallet">
-                                                Wallet
-                                            </label>
-                                        </div>
-                                        <div className="form-check my-2">
-                                            <input className="form-check-input" type="radio" name="ModeOfPayment" id="CreditOrDebitCard" disabled required />
-                                            <label className="form-check-label" htmlFor="CreditOrDebitCard">
-                                                Credit / Debit Card
-                                            </label>
-                                        </div>
-                                        <div className="form-check my-2">
-                                            <input className="form-check-input" type="radio" name="ModeOfPayment" id="NetBanking" disabled required />
-                                            <label className="form-check-label" htmlFor="NetBanking">
-                                                Net Banking
-                                            </label>
-                                        </div>
+                                        <RadioButton name="ModeOfPayment" code="CashOnDelivery" isRequired clickFunc={() => setModeSelected(true)}>
+                                            Cash on Delivery
+                                        </RadioButton>
+                                        <RadioButton name="ModeOfPayment" code="Wallet" isDisabled isRequired clickFunc={() => setModeSelected(true)}>
+                                            Wallet
+                                        </RadioButton>
+                                        <RadioButton name="ModeOfPayment" code="CreditOrDebitCard" isDisabled isRequired clickFunc={() => setModeSelected(true)}>
+                                            Credit / Debit Card
+                                        </RadioButton>
+                                        <RadioButton name="ModeOfPayment" code="NetBanking" isDisabled isRequired clickFunc={() => setModeSelected(true)}>
+                                            Net Banking
+                                        </RadioButton>
                                     </div>
                                     <div className="col-12">
-                                        <Button type="button" onClick={() => props.placeOrder(data)}>
+                                        {props.orderError ?
+                                            <div className="alert alert-danger mt-4" role="alert">
+                                                <strong>{props.orderError}</strong>
+                                            </div>
+                                            : null}
+                                    </div>
+                                    <div className="col-12">
+                                        <Button type="button" onClick={() => placeOrderHandler(props.address, modeSelected, data, props.placeOrder, props.placeOrderFail)}>
                                             Place Order
                                         </Button>
                                     </div>
@@ -144,6 +162,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     placeOrderInitialize: () => dispatch(actions.placeOrderInitialize()),
     placeOrder: (data) => dispatch(actions.placeOrder(data)),
+    placeOrderFail: (error) => dispatch(actions.placeOrderFail(error)),
     getAddress: (user) => dispatch(actions.getAddress(user)),
     clearCart: () => dispatch(actions.clearCart())
 })

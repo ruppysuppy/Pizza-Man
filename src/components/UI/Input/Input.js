@@ -12,7 +12,8 @@ function Input(props) {
             onChange={onChangeHandler}
             value={val}
             placeholder={placeholder}
-            className={style.Input} />
+            className={style.Input}
+        />
     )
 }
 

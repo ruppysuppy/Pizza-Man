@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.GET_ADDRESS_FAIL:
             return {
                 ...state,
-                isLoading: true,
+                isLoading: false,
                 error: payload.error
             }
 
@@ -48,7 +48,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ADD_ADDRESS_FAIL:
             return {
                 ...state,
-                isLoading: true,
+                isLoading: false,
                 error: payload.error
             }
 

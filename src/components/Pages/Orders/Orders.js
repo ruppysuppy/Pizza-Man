@@ -18,23 +18,35 @@ const updateOrderHandler = ({ updateOrder, user, last, hasMore }) => {
 }
 
 function Orders(props) {
+    const { user, hasMore, updateOrder } = props
+
     useEffect(() => {
-        if (props.user) {
-            props.updateOrder(props.user.uid)
+        if (user && hasMore) {
+            updateOrder(user.uid)
         }
-    }, [])
+    }, [user, hasMore, updateOrder])
 
     const display = props.orders.map(order => <OrderItem {...order} />)
 
     return (
         <div className={`my-5 pt-2 container ${style.Body}`}>
+            <h1 className="display-4 mb-0">
+                <strong>Orders</strong>
+            </h1>
+            <div className={`mt-1 mb-4 ${style.HR}`} />
             {!props.user ? <Redirect to="/" /> : null}
-            {display}
-            {props.isLoading ? <Spinner /> : null}
-            <Button onClick={() => updateOrderHandler(props)}>
-                Load More
-            </Button>
-        </div>
+            {props.isLoading ? <Spinner />
+                : props.orders.length > 0 ? display : <>
+                    <h1 className="display-4">
+                        You haven't ordered anything yet!
+            </h1>
+                </>}
+            {props.hasMore ?
+                < Button onClick={() => updateOrderHandler(props)}>
+                    Load More
+            </Button> : null
+            }
+        </div >
     )
 }
 

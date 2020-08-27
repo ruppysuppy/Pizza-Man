@@ -31,7 +31,7 @@ const reducer = (state = initialState, action) => {
                 })
             }
             updatedPrice += payload.item.price
-            updatedGst = updatedPrice * GST_RATE
+            updatedGst = +((updatedPrice * GST_RATE).toFixed(2))
             return {
                 ...state,
                 cart: updatedCart,
@@ -45,7 +45,7 @@ const reducer = (state = initialState, action) => {
                 return state
             }
             updatedPrice -= payload.item.price
-            updatedGst = updatedPrice * GST_RATE
+            updatedGst = +((updatedPrice * GST_RATE).toFixed(2))
             updatedCart[state.itemMap[payload.item.id]].quantity -= 1
             if (updatedCart[state.itemMap[payload.item.id]].quantity === 0) {
                 updatedCart = updatedCart.filter(item => item.id !== payload.item.id)

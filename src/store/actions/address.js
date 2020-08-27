@@ -62,9 +62,12 @@ export const addAddressSuccess = (address) => {
     }
 }
 
-export const addAddressFail = () => {
+export const addAddressFail = (error) => {
     return {
-        type: actionTypes.ADD_ADDRESS_FAIL
+        type: actionTypes.ADD_ADDRESS_FAIL,
+        payload: {
+            error: error
+        }
     }
 }
 

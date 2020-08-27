@@ -8,14 +8,16 @@ export {
 } from './cart'
 export {
     placeOrder,
-    placeOrderInitialize
+    placeOrderInitialize,
+    placeOrderFail
 } from './order'
 export {
     authChangedHandler
 } from './auth'
 export {
     getAddress,
-    addAddress
+    addAddress,
+    addAddressFail
 } from './address'
 export {
     updateOrder
