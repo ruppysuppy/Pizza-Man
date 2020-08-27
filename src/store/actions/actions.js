@@ -17,3 +17,6 @@ export {
     getAddress,
     addAddress
 } from './address'
+export {
+    updateOrder
+} from './pastOrders'

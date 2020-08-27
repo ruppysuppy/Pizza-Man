@@ -36,7 +36,10 @@ export const placeOrder = (data) => {
     return dispatch => {
         dispatch(placeOrderInit())
         const dataRef = db.collection('orders').doc()
-        dataRef.set(data)
+        dataRef.set({
+            ...data,
+            ts: Math.round(new Date().getTime() / 100)
+        })
             .then(() => {
                 dispatch(placeOrderSuccess())
             })
