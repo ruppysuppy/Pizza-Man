@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Button from '../../UI/Button/Button'
 import Address from './Address/Address'
 import AddressForm from './AddressForm/AddressForm'
+import Spinner from '../../UI/Spinner/Spinner'
 
 import * as actions from '../../../store/actions/actions'
 
@@ -44,16 +45,21 @@ function Checkout(props) {
                     <h2 className={style.H2}>Location</h2>
                     <div className={`my-auto ${style.HRLight}`} />
                 </div>
-                <Address {...props.address} />
-                {props.error ?
-                    <div className="alert alert-danger mt-4" role="alert">
-                        <strong>{props.error}</strong>
-                    </div>
-                    : null}
-                {addressFormShown ? <AddressForm {...props.address} hideAddressForm={() => setAddressFormShown(false)} /> :
-                    <button onClick={() => setAddressFormShown(true)}>
-                        Update Address
-                </button>}
+                {props.isLoading ?
+                    <Spinner /> :
+                    <>
+                        <Address {...props.address} />
+                        {props.error ?
+                            <div className="alert alert-danger mt-4" role="alert">
+                                <strong>{props.error}</strong>
+                            </div>
+                            : null}
+
+                        {addressFormShown ? <AddressForm {...props.address} hideAddressForm={() => setAddressFormShown(false)} /> :
+                            <button onClick={() => setAddressFormShown(true)}>
+                                Update Address
+                            </button>}
+                    </>}
             </div>
             <div className="my-4">
                 <div className={style.Row}>
@@ -102,13 +108,14 @@ const mapStateToProps = state => ({
     cart: state.cart.cart,
     price: state.cart.totalPrice,
     user: state.auth.user,
-    address: state.auth.address,
-    error: state.auth.error
+    address: state.address.address,
+    error: state.address.error,
+    isLoading: state.address.isLoading
 })
 
 const mapDispatchToProps = dispatch => ({
     placeOrder: (data, user) => dispatch(actions.placeOrder(data, user)),
-    getAddress: (user) => dispatch(actions.authGetAddress(user))
+    getAddress: (user) => dispatch(actions.getAddress(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)

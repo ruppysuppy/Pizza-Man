@@ -1,0 +1,22 @@
+.Input {
+	background-color: #ddd;
+	display: block;
+	width: 100%;
+	margin: 12px 0;
+	padding: 12px 16px;
+	border-radius: 20px;
+	border: none;
+	outline: none !important;
+}
+
+.Input:hover {
+	background-color: #bbb;
+}
+
+.Input:focus {
+	background-color: #888;
+}
+
+.Input:focus::placeholder {
+	color: white;
+}

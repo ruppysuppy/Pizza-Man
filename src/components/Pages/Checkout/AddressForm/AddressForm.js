@@ -42,10 +42,11 @@ function AddressForm(props) {
 
 const mapStateToProps = state => ({
     user: state.auth.user,
-    address: state.auth.address
+    address: state.address.address
 })
+
 const mapDispatchToProps = dispatch => ({
-    addAddress: (user, address, isNew) => dispatch(actions.authAddAddress(user, address, isNew))
+    addAddress: (user, address, isNew) => dispatch(actions.addAddress(user, address, isNew))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddressForm)

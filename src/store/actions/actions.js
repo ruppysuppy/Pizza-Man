@@ -10,7 +10,9 @@ export {
     placeOrder
 } from './order'
 export {
-    authChangedHandler,
-    authGetAddress,
-    authAddAddress
+    authChangedHandler
 } from './auth'
+export {
+    getAddress,
+    addAddress
+} from './address'
