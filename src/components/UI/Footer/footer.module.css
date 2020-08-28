@@ -43,8 +43,6 @@
 	transition: 0.2s;
 }
 
-.TextLink:active::after,
-.TextLink:focus::after,
 .TextLink:hover::after {
 	width: 100%;
 }

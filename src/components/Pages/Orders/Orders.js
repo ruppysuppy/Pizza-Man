@@ -19,21 +19,22 @@ const updateOrderHandler = ({ updateOrder, user, last, hasMore }) => {
 }
 
 function Orders(props) {
-    const { user, hasMore, updateOrder } = props
+    const { user, hasMore, updateOrder, orders } = props
 
     useEffect(() => {
-        if (user && hasMore) {
+        if (user && hasMore && orders.length === 0) {
             updateOrder(user.uid)
         }
     }, [user, hasMore, updateOrder])
 
-    const display = props.orders.map(order => <OrderItem {...order} />)
+    const display = props.orders.map(order => <OrderItem {...order} key={order.ts} />)
 
     return (
         <div className={`my-5 pt-2 container ${commonStyle.PageBody}`}>
             <PageTitle>
                 Orders
             </PageTitle>
+            <div className="my-2" />
             {!props.user ? <Redirect to="/" /> : null}
             {props.orders.length > 0 ? display
                 : !props.isLoading ? <>
@@ -41,6 +42,7 @@ function Orders(props) {
                         You haven't ordered anything yet!
                     </h1>
                 </> : null}
+            <br />
             {props.isLoading ? <Spinner />
                 : null}
             {props.hasMore ?

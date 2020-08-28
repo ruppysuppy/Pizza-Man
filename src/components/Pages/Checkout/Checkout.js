@@ -16,7 +16,9 @@ import * as actions from '../../../store/actions/actions'
 import commonStyle from '../../../static/style/common.module.css'
 
 
-const placeOrderHandler = (address, modeSelected, data, placeOrder, placeOrderFail) => {
+const placeOrderHandler = (event, address, modeSelected, data, placeOrder, placeOrderFail) => {
+    event.preventDefault()
+
     if (address && modeSelected) {
         placeOrder(data)
     } else if (!address && !modeSelected) {
@@ -97,12 +99,17 @@ function Checkout(props) {
                                         {addressFormShown ?
                                             <AddressForm {...props.address} hideAddressForm={() => setAddressFormShown(false)} />
                                             : props.addressError === "No Address Found" ?
-                                                <button onClick={() => setAddressFormShown(true)}>
-                                                    Add Address
-                                                </button> :
-                                                <button onClick={() => setAddressFormShown(true)}>
+                                                <>
+                                                    <ErrorDisplay>
+                                                        {props.addressError}
+                                                    </ErrorDisplay>
+                                                    <Button onClick={() => setAddressFormShown(true)}>
+                                                        Add Address
+                                                    </Button>
+                                                </> :
+                                                <Button onClick={() => setAddressFormShown(true)}>
                                                     Update Address
-                                                </button>
+                                                </Button>
                                         }
                                     </>}
                             </div>
@@ -133,7 +140,7 @@ function Checkout(props) {
                                             : null}
                                     </div>
                                     <div className="col-12">
-                                        <Button type="button" onClick={() => placeOrderHandler(props.address, modeSelected, data, props.placeOrder, props.placeOrderFail)}>
+                                        <Button type="button" onClick={(event) => placeOrderHandler(event, props.address, modeSelected, data, props.placeOrder, props.placeOrderFail)}>
                                             Place Order
                                         </Button>
                                     </div>

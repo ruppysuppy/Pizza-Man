@@ -1,4 +1,7 @@
-.Body {
-	border-top: 1px solid black;
+.OrderItemBody {
 	border-bottom: 1px solid black;
+}
+
+.OrderItemBody:first-of-type {
+	border-top: 1px solid black;
 }

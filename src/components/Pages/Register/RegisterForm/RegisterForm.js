@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import StylizedFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+
+import firebase from '../../../../firebase/firebase'
 
 import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
@@ -9,6 +12,17 @@ import Spinner from '../../../UI/Spinner/Spinner'
 
 import * as actions from '../../../../store/actions/actions'
 import { Redirect } from 'react-router'
+
+
+const uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+        signInSuccessWithAuthResult: () => false
+    }
+}
 
 function RegisterForm(props) {
     const [email, setEmail] = useState("")
@@ -37,37 +51,48 @@ function RegisterForm(props) {
             {props.registered ?
                 <Redirect to="/login" /> : null}
             {props.isLoading ? <Spinner /> :
-                <form onSubmit={updateHandler}>
-                    <Input
-                        val={email}
-                        onChangeFunc={setEmail}
-                        placeholder="Email"
-                        type="email"
-                    />
-                    <Input
-                        val={password}
-                        onChangeFunc={setPassword}
-                        placeholder="Password"
-                        type="password"
-                    />
-                    <Input
-                        val={passwordConfirm}
-                        onChangeFunc={setPasswordConfirm}
-                        placeholder="Confirm Password"
-                        type="password"
-                    />
-                    {props.error ? <ErrorDisplay>
-                        {props.error}
-                    </ErrorDisplay> : null}
+                <>
+                    <form onSubmit={updateHandler}>
+                        <Input
+                            val={email}
+                            onChangeFunc={setEmail}
+                            placeholder="Email"
+                            type="email"
+                        />
+                        <Input
+                            val={password}
+                            onChangeFunc={setPassword}
+                            placeholder="Password"
+                            type="password"
+                        />
+                        <Input
+                            val={passwordConfirm}
+                            onChangeFunc={setPasswordConfirm}
+                            placeholder="Confirm Password"
+                            type="password"
+                        />
+                        {props.error ? <ErrorDisplay>
+                            {props.error}
+                        </ErrorDisplay> : null}
 
-                    <p className="font-weight-bold mt-2">
-                        Already registered? <Link to="/login">Login</Link>
-                    </p>
+                        <p className="font-weight-bold mt-2">
+                            Already registered? <Link to="/login">Login</Link>
+                        </p>
 
-                    <Button>
-                        Register
+                        <Button>
+                            Register
                     </Button>
-                </form>}
+                    </form>
+                    <div align="center">
+                        <strong>
+                            OR
+                        </strong>
+                    </div>
+
+                    <StylizedFirebaseAuth
+                        uiConfig={uiConfig}
+                        firebaseAuth={firebase.auth()} />
+                </>}
         </div>
     )
 }

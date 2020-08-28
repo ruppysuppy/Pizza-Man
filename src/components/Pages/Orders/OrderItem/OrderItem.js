@@ -13,7 +13,7 @@ function OrderItem({ address, order, price, ts }) {
     </tr>)
 
     return (
-        <div className={`my-5 py-2 ${style.Body}`}>
+        <div className={`py-3 ${style.OrderItemBody}`}>
             <strong className="d-inline-block mb-2">Time:</strong> {new Date(ts).toDateString()}
             <Address {...address} />
             <table className="table table-hover">

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import CartItem from './CartItem/CartItem'
+import Button from '../../../UI/Button/Button'
+import * as BtnTypes from '../../../UI/Button/types'
 
 import * as actions from '../../../../store/actions/actions'
 
@@ -19,9 +21,14 @@ function Cart(props) {
                 <h1 className="my-2 mx-2">Cart</h1>
                 <div className="mx-2">
                     {props.cart.length > 0 ?
-                        <button className={`my-2 mx-2 btn btn-danger ${style.ClearCartBtn}`} onClick={props.clearCart}>
-                            Clear Cart
-                    </button>
+                        //     <button className={`my-2 mx-2 btn btn-danger ${style.ClearCartBtn}`} onClick={props.clearCart}>
+
+                        // </button>
+                        <span className={`my-2 mx-2 ${style.ClearCartBtn}`}>
+                            <Button onClick={props.clearCart} type={BtnTypes.DANGER}>
+                                Clear Cart
+                            </Button>
+                        </span>
                         : <div className={style.EmptyBody}>
                             <i className="fa fa-shopping-cart" aria-hidden="true" />
                             <span>

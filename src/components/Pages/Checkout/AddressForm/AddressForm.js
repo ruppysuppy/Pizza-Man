@@ -3,15 +3,19 @@ import { connect } from 'react-redux'
 
 import Input from '../../../UI/Input/Input'
 import ErrorDisplay from '../../../Util/ErrorDisplay/ErrorDisplay'
+import Button from '../../../UI/Button/Button'
+import * as BtnTypes from '../../../UI/Button/types'
 
 import * as actions from '../../../../store/actions/actions'
 
 function AddressForm(props) {
-    const { buildingNumber, streetName, city, pinCode, user, hideAddressForm, address } = props
+    const { buildingNumber, streetName, city, state, country, pinCode, user, hideAddressForm, address } = props
 
     const [addressBuildingNumber, setBuildingNumber] = useState(buildingNumber || "")
     const [addressStreetName, setStreetName] = useState(streetName || "")
     const [addressCity, setCity] = useState(city || "")
+    const [addressState, setState] = useState(state || "")
+    const [addressCountry, setCountry] = useState(country || "")
     const [addressPinCode, setPinCode] = useState(pinCode || "")
 
     const updateHandler = () => {
@@ -19,16 +23,20 @@ function AddressForm(props) {
             buildingNumber: addressBuildingNumber,
             streetName: addressStreetName,
             city: addressCity,
+            state: addressState,
+            country: addressCountry,
             pinCode: addressPinCode
         }
         if (addressBuildingNumber.length >= 1 &&
             addressStreetName.length >= 8 &&
             addressCity.length >= 4 &&
+            addressState.length >= 4 &&
+            addressCountry.length >= 4 &&
             addressPinCode.length >= 6) {
             props.addAddress(user, updatedAddress, address ? false : true)
             hideAddressForm()
         } else {
-            props.addAddressFail("Please Enter a valid Address in India")
+            props.addAddressFail("Please Enter a valid address")
         }
     }
 
@@ -50,21 +58,35 @@ function AddressForm(props) {
                 placeholder="City"
             />
             <Input
+                val={addressState}
+                onChangeFunc={setState}
+                placeholder="State"
+            />
+            <Input
+                val={addressCountry}
+                onChangeFunc={setCountry}
+                placeholder="Country"
+            />
+            <Input
                 val={addressPinCode}
                 onChangeFunc={setPinCode}
                 placeholder="Pin Code"
             />
-            {props.error ?
+            {props.error && props.error !== "No Address Found" ?
                 <ErrorDisplay>
                     {props.error}
                 </ErrorDisplay>
                 : null}
-            <button onClick={hideAddressForm}>
-                Cancel
-            </button>
-            <button onClick={updateHandler}>
-                Update
-            </button>
+            <span className="my-2 mr-2">
+                <Button onClick={hideAddressForm} type={BtnTypes.SECONDARY}>
+                    Cancel
+            </Button>
+            </span>
+            <span className="my-2 ml-2">
+                <Button onClick={updateHandler}>
+                    Update
+                </Button>
+            </span>
         </div>
     )
 }

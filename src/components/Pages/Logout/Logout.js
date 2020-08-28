@@ -7,6 +7,7 @@ import firebase from '../../../firebase/firebase'
 function Logout(props) {
     if (props.user) {
         firebase.auth().signOut()
+        props.clearCart()
     }
 
     return (
@@ -18,4 +19,8 @@ const mapStateToProps = state => ({
     user: state.auth.user
 })
 
-export default connect(mapStateToProps)(Logout)
+const mapDispatchToProps = dispatch => ({
+    clearCart: () => dispatch(actions.clearCart())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Logout)

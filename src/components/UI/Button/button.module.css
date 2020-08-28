@@ -1,17 +1,36 @@
 .Btn {
-	background-color: #724cf9;
 	color: white;
 	border: none;
+	outline: none !important;
 	border-radius: 8px;
 	padding: 8px 16px;
 	font-size: large;
-	margin-top: 20px;
-	transition: 0.2s ease-in-out;
+	transition: 0.15s ease-in-out;
 }
 
-.Btn:hover,
-.Btn:focus {
-	transform: scale(1.05);
+.Danger {
+	background-color: #ff3333;
+}
+
+.Danger:hover {
+	background-color: #ff1111;
+	filter: drop-shadow(0 0 8px #ff1111);
+}
+
+.Normal {
+	background-color: #724cf9;
+}
+
+.Normal:hover {
+	background-color: #5a2ff3;
 	filter: drop-shadow(0 0 8px #724cf9);
-	outline: none;
+}
+
+.Secondary {
+	background-color: #888;
+}
+
+.Secondary:hover {
+	background-color: #666;
+	filter: drop-shadow(0 0 8px #666);
 }
