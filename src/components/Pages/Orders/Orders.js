@@ -7,8 +7,9 @@ import * as actions from '../../../store/actions/actions'
 import OrderItem from './OrderItem/OrderItem'
 import Spinner from '../../UI/Spinner/Spinner'
 import Button from '../../UI/Button/Button'
+import PageTitle from '../../UI/PageTitle/PageTitle'
 
-import style from './orders.module.css'
+import commonStyle from '../../../static/style/common.module.css'
 
 
 const updateOrderHandler = ({ updateOrder, user, last, hasMore }) => {
@@ -29,23 +30,23 @@ function Orders(props) {
     const display = props.orders.map(order => <OrderItem {...order} />)
 
     return (
-        <div className={`my-5 pt-2 container ${style.Body}`}>
-            <h1 className="display-4 mb-0">
-                <strong>Orders</strong>
-            </h1>
-            <div className={`mt-1 mb-4 ${style.HR}`} />
+        <div className={`my-5 pt-2 container ${commonStyle.PageBody}`}>
+            <PageTitle>
+                Orders
+            </PageTitle>
             {!props.user ? <Redirect to="/" /> : null}
-            {props.isLoading ? <Spinner />
-                : props.orders.length > 0 ? display : <>
+            {props.orders.length > 0 ? display
+                : !props.isLoading ? <>
                     <h1 className="display-4">
                         You haven't ordered anything yet!
-            </h1>
-                </>}
+                    </h1>
+                </> : null}
+            {props.isLoading ? <Spinner />
+                : null}
             {props.hasMore ?
                 < Button onClick={() => updateOrderHandler(props)}>
                     Load More
-            </Button> : null
-            }
+                </Button> : null}
         </div >
     )
 }

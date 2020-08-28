@@ -6,8 +6,10 @@ import * as actions from '../../../store/actions/actions'
 import Spinner from '../../UI/Spinner/Spinner'
 import Category from './Category/Category'
 import Cart from './Cart/Cart'
+import PageTitle from '../../UI/PageTitle/PageTitle'
+import ErrorDisplay from '../../Util/ErrorDisplay/ErrorDisplay'
 
-import style from './menu.module.css'
+import commonStyle from '../../../static/style/common.module.css'
 
 function Menu(props) {
     const { menu, error, isLoading, initMenu } = props
@@ -15,8 +17,6 @@ function Menu(props) {
     useEffect(() => {
         if (menu.length === 0) { initMenu() }
     }, [initMenu, menu])
-    // Scroll To Top
-    useEffect(() => window.scrollTo(0, 0), [])
 
     const display = menu.map(categoryData => <Category
         name={categoryData.name}
@@ -26,17 +26,16 @@ function Menu(props) {
 
     return (
         <>
-            <div className={`container mt-5 pt-2 ${style.Body}`}>
-                <h1 className="display-6 mb-0">
-                    <strong>MENU</strong>
-                </h1>
-                <div className={`mt-1 mb-4 ${style.HR}`} />
+            <div className={`container mt-5 pt-2 ${commonStyle.PageBody}`}>
+                <PageTitle>
+                    Menu
+                </PageTitle>
                 <div className="row">
                     <div className="col-lg-8">
                         {error ?
-                            <div class="alert alert-danger mt-4" role="alert">
-                                <strong>{error}</strong>
-                            </div>
+                            <ErrorDisplay>
+                                {error}
+                            </ErrorDisplay>
                             : isLoading ?
                                 <Spinner />
                                 : display}

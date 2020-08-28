@@ -5,6 +5,10 @@ import StylizedFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
 import firebase from '../../../firebase/firebase'
 
+import PageTitle from '../../UI/PageTitle/PageTitle'
+
+import commonStyle from '../../../static/style/common.module.css'
+
 const uiConfig = {
     signInFlow: "popup",
     signInOptions: [
@@ -17,8 +21,13 @@ const uiConfig = {
 
 function Register(props) {
     return (
-        <div className="my-5 pt-2">
+        <div className={`my-5 pt-2 container ${commonStyle.PageBody}`}>
             {props.user ? <Redirect to="/" /> : null}
+
+            <PageTitle>
+                Register
+            </PageTitle>
+
             <StylizedFirebaseAuth
                 uiConfig={uiConfig}
                 firebaseAuth={firebase.auth()}

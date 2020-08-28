@@ -4,10 +4,11 @@ import { Link, Redirect } from 'react-router-dom'
 
 import CartPageItem from './CartPageItem/CartPageItem'
 import Button from '../../UI/Button/Button'
+import PageTitle from '../../UI/PageTitle/PageTitle'
 
 import { GST_RATE } from '../../../store/reducers/cartReducer'
 
-import style from './cartPage.module.css'
+import commonStyle from '../../../static/style/common.module.css'
 
 function CartPage(props) {
     const display = props.cart.map(item => (
@@ -15,13 +16,12 @@ function CartPage(props) {
     ))
 
     return (
-        <div className={`container mt-5 pt-2 ${style.Body}`}>
+        <div className={`container mt-5 pt-2 ${commonStyle.PageBody}`}>
             {props.cart.length === 0 ?
                 <Redirect to="./menu" /> : null}
-            <h1 className="display-6 mb-0">
-                <strong>CART</strong>
-            </h1>
-            <div className={`mt-1 mb-4 ${style.HR}`} />
+            <PageTitle>
+                Cart
+            </PageTitle>
             <div className="mt-2">
                 {display}
             </div>

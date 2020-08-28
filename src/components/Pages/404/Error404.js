@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
-import style from './error404.module.css'
+import PageTitle from '../../UI/PageTitle/PageTitle'
+
+import commonStyle from '../../../static/style/common.module.css'
 
 function Error404() {
-    // Scroll To Top
-    useEffect(() => window.scrollTo(0, 0), [])
-
     return (
-        <div className={`container mt-5 pt-2 ${style.Body}`}>
-            <h1 className="display-2">
+        <div className={`container mt-5 pt-2 ${commonStyle.PageBody}`}>
+            <PageTitle>
                 Error 404
-            </h1>
-            <h1 className="pl-1">
+            </PageTitle>
+            <h1 className="font-weight-light">
                 It seems like you are lost!
             </h1>
         </div>

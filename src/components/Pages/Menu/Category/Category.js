@@ -1,8 +1,7 @@
 import React from 'react'
 
 import Item from './Item.js/Item'
-
-import style from './category.module.css'
+import SectionTitle from '../../../UI/SectionTitle/SectionTitle'
 
 function Category(props) {
     const { name, items } = props
@@ -18,10 +17,9 @@ function Category(props) {
 
     return (
         <div className="my-4">
-            <div className={style.Row}>
-                <h2 className={style.H2}>{name}</h2>
-                <div className={`my-auto ${style.HR}`} />
-            </div>
+            <SectionTitle>
+                {name}
+            </SectionTitle>
             {itemsDisplay}
         </div>
     )

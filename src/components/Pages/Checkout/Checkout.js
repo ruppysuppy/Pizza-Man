@@ -7,17 +7,24 @@ import Address from '../../UI/Address/Address'
 import AddressForm from './AddressForm/AddressForm'
 import Spinner from '../../UI/Spinner/Spinner'
 import RadioButton from '../../UI/RadioButton/RadioButton'
+import PageTitle from '../../UI/PageTitle/PageTitle'
+import SectionTitle from '../../UI/SectionTitle/SectionTitle'
+import ErrorDisplay from '../../Util/ErrorDisplay/ErrorDisplay'
 
 import * as actions from '../../../store/actions/actions'
 
-import style from './checkout.module.css'
+import commonStyle from '../../../static/style/common.module.css'
 
 
 const placeOrderHandler = (address, modeSelected, data, placeOrder, placeOrderFail) => {
     if (address && modeSelected) {
         placeOrder(data)
-    } else {
+    } else if (!address && !modeSelected) {
         placeOrderFail("Please make sure that all fields are filled")
+    } else if (!address) {
+        placeOrderFail("Please fill in the address field")
+    } else {
+        placeOrderFail("Please select the mode of payment field")
     }
 }
 
@@ -56,16 +63,15 @@ function Checkout(props) {
     }
 
     return (
-        <div className={`container mt-5 pt-2 ${style.Body}`}>
+        <div className={`container mt-5 pt-2 ${commonStyle.PageBody}`}>
             {props.isOrderLoading ?
                 <Spinner /> :
                 <>
                     {props.orderPlaced ?
                         <div>
-                            <h1 className="display-6 mb-0">
-                                <strong>ORDER PLACED</strong>
-                            </h1>
-                            <div className={`mt-1 mb-4 ${style.HR}`} />
+                            <PageTitle>
+                                Order Placed
+                            </PageTitle>
                             <h1 className="display-6 mt-4">
                                 Your yummy pizza will arrive at your doorstep soon! :)
                             </h1>
@@ -75,28 +81,22 @@ function Checkout(props) {
                                 <Redirect to="./menu" /> : null}
                             {!props.user ?
                                 <Redirect to="./login" /> : null}
-                            <h1 className="display-6 mb-0">
-                                <strong>CHECKOUT</strong>
-                            </h1>
-                            <div className={`mt-1 mb-4 ${style.HR}`} />
+                            <PageTitle>
+                                Checkout
+                            </PageTitle>
 
                             <div className="my-4">
-                                <div className={style.Row}>
-                                    <h2 className={style.H2}>Location</h2>
-                                    <div className={`my-auto ${style.HRLight}`} />
-                                </div>
+                                <SectionTitle>
+                                    Location
+                                </SectionTitle>
                                 {props.isAddressLoading ?
                                     <Spinner /> :
                                     <>
                                         <Address {...props.address} />
-                                        {props.addressError ?
-                                            <div className="alert alert-danger mt-4" role="alert">
-                                                <strong>{props.addressError}</strong>
-                                            </div>
-                                            : null}
 
-                                        {addressFormShown ? <AddressForm {...props.address} hideAddressForm={() => setAddressFormShown(false)} /> :
-                                            props.addressError ?
+                                        {addressFormShown ?
+                                            <AddressForm {...props.address} hideAddressForm={() => setAddressFormShown(false)} />
+                                            : props.addressError === "No Address Found" ?
                                                 <button onClick={() => setAddressFormShown(true)}>
                                                     Add Address
                                                 </button> :
@@ -107,10 +107,9 @@ function Checkout(props) {
                                     </>}
                             </div>
                             <div className="my-4">
-                                <div className={style.Row}>
-                                    <h2 className={style.H2}>Mode of Payment</h2>
-                                    <div className={`my-auto ${style.HRLight}`} />
-                                </div>
+                                <SectionTitle>
+                                    Mode of Payment
+                                </SectionTitle>
                                 <form>
                                     <div className="col-12 mt-4">
                                         <RadioButton name="ModeOfPayment" code="CashOnDelivery" isRequired clickFunc={() => setModeSelected(true)}>
@@ -128,9 +127,9 @@ function Checkout(props) {
                                     </div>
                                     <div className="col-12">
                                         {props.orderError ?
-                                            <div className="alert alert-danger mt-4" role="alert">
-                                                <strong>{props.orderError}</strong>
-                                            </div>
+                                            <ErrorDisplay>
+                                                {props.orderError}
+                                            </ErrorDisplay>
                                             : null}
                                     </div>
                                     <div className="col-12">

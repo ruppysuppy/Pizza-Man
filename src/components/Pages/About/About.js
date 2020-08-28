@@ -1,11 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import PageInfo from '../../UI/PageInfo/PageInfo'
 
 function About() {
-    // Scroll To Top
-    useEffect(() => window.scrollTo(0, 0), [])
-
     return (
         <>
             <PageInfo>

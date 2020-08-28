@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import Input from '../../../UI/Input/Input'
+import ErrorDisplay from '../../../Util/ErrorDisplay/ErrorDisplay'
 
 import * as actions from '../../../../store/actions/actions'
 
@@ -54,9 +55,9 @@ function AddressForm(props) {
                 placeholder="Pin Code"
             />
             {props.error ?
-                <div className="alert alert-danger mt-4" role="alert">
-                    <strong>{props.error}</strong>
-                </div>
+                <ErrorDisplay>
+                    {props.error}
+                </ErrorDisplay>
                 : null}
             <button onClick={hideAddressForm}>
                 Cancel
