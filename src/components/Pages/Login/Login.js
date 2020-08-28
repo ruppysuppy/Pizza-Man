@@ -6,6 +6,7 @@ import StylizedFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import firebase from '../../../firebase/firebase'
 
 import PageTitle from '../../UI/PageTitle/PageTitle'
+import LoginForm from './LoginForm/LoginForm'
 
 import commonStyle from '../../../static/style/common.module.css'
 
@@ -22,11 +23,19 @@ const uiConfig = {
 function Login(props) {
     return (
         <div className={`my-5 pt-2 container ${commonStyle.PageBody}`}>
-            {props.user ? <Redirect to="/" /> : null}
+            {props.user ? <Redirect to="/menu" /> : null}
 
             <PageTitle>
                 Login
             </PageTitle>
+
+            <LoginForm />
+
+            <div align="center">
+                <strong>
+                    OR
+                </strong>
+            </div>
 
             <StylizedFirebaseAuth
                 uiConfig={uiConfig}

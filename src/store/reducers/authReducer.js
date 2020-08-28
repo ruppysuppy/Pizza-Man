@@ -1,7 +1,10 @@
 import * as actionTypes from '../actions/actionTypes'
 
 const initialState = {
-    user: null
+    user: null,
+    isLoading: false,
+    registered: false,
+    error: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +14,41 @@ const reducer = (state = initialState, action) => {
         case actionTypes.AUTH_CHANGED:
             return {
                 ...state,
-                user: payload.user
+                user: payload.user,
+                isLoading: false
+            }
+
+        case actionTypes.EMAIL_REGISTER:
+            return {
+                ...state,
+                isLoading: true
+            }
+
+        case actionTypes.EMAIL_REGISTER_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                registered: true
+            }
+
+        case actionTypes.EMAIL_REGISTER_FAIL:
+            return {
+                ...state,
+                error: payload.error,
+                isLoading: false
+            }
+
+        case actionTypes.EMAIL_AUTH:
+            return {
+                ...state,
+                isLoading: true
+            }
+
+        case actionTypes.EMAIL_AUTH_FAIL:
+            return {
+                ...state,
+                error: payload.error,
+                isLoading: false
             }
 
         default:

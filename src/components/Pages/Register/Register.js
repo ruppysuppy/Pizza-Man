@@ -6,6 +6,8 @@ import StylizedFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import firebase from '../../../firebase/firebase'
 
 import PageTitle from '../../UI/PageTitle/PageTitle'
+import RegisterForm from './RegisterForm/RegisterForm'
+import Spinner from '../../UI/Spinner/Spinner'
 
 import commonStyle from '../../../static/style/common.module.css'
 
@@ -22,11 +24,19 @@ const uiConfig = {
 function Register(props) {
     return (
         <div className={`my-5 pt-2 container ${commonStyle.PageBody}`}>
-            {props.user ? <Redirect to="/" /> : null}
+            {props.user ? <Redirect to="/menu" /> : null}
 
             <PageTitle>
                 Register
             </PageTitle>
+
+            <RegisterForm />
+
+            <div align="center">
+                <strong>
+                    OR
+                </strong>
+            </div>
 
             <StylizedFirebaseAuth
                 uiConfig={uiConfig}

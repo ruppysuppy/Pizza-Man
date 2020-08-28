@@ -12,7 +12,11 @@ export {
     placeOrderFail
 } from './order'
 export {
-    authChangedHandler
+    authChangedHandler,
+    emailAuthFail,
+    emailAuth,
+    emailRegister,
+    emailRegisterFail
 } from './auth'
 export {
     getAddress,
