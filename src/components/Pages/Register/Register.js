@@ -7,7 +7,6 @@ import firebase from '../../../firebase/firebase'
 
 import PageTitle from '../../UI/PageTitle/PageTitle'
 import RegisterForm from './RegisterForm/RegisterForm'
-import Spinner from '../../UI/Spinner/Spinner'
 
 import commonStyle from '../../../static/style/common.module.css'
 

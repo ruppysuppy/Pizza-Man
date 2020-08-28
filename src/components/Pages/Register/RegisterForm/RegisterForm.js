@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
@@ -58,6 +59,11 @@ function RegisterForm(props) {
                     {props.error ? <ErrorDisplay>
                         {props.error}
                     </ErrorDisplay> : null}
+
+                    <p className="font-weight-bold mt-2">
+                        Already registered? <Link to="/login">Login</Link>
+                    </p>
+
                     <Button>
                         Register
                     </Button>

@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
@@ -45,6 +46,11 @@ function LoginForm(props) {
                     {props.error ? <ErrorDisplay>
                         {props.error}
                     </ErrorDisplay> : null}
+
+                    <p className="font-weight-bold my-2">
+                        Not yet registered? <Link to="/register">Register</Link>
+                    </p>
+
                     <Button>
                         Login
                     </Button>

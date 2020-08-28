@@ -15,13 +15,15 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 user: payload.user,
-                isLoading: false
+                isLoading: false,
+                error: null
             }
 
         case actionTypes.EMAIL_REGISTER:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
+                error: null
             }
 
         case actionTypes.EMAIL_REGISTER_SUCCESS:
@@ -41,7 +43,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.EMAIL_AUTH:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
+                error: null
             }
 
         case actionTypes.EMAIL_AUTH_FAIL:
