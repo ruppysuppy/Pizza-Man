@@ -25,7 +25,7 @@ function Orders(props) {
         if (user && hasMore && orders.length === 0) {
             updateOrder(user.uid)
         }
-    }, [user, hasMore, updateOrder])
+    }, [user, hasMore, updateOrder, orders])
 
     const display = props.orders.map(order => <OrderItem {...order} key={order.ts} />)
 

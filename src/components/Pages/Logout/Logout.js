@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import firebase from '../../../firebase/firebase'
 
+import * as actions from '../../../store/actions/actions'
+
 function Logout(props) {
     if (props.user) {
         firebase.auth().signOut()
