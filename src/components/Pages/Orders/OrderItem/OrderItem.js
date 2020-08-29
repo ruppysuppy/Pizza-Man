@@ -3,7 +3,7 @@ import Address from '../../../UI/Address/Address'
 
 import style from './orderItem.module.css'
 
-function OrderItem({ address, order, price, ts }) {
+function OrderItem({ address, order, price, ts, reference }) {
     const table = order.map((item, index) => <tr key={index}>
         <th scope="row">{index + 1}</th>
         <td>{item.name}</td>
@@ -13,7 +13,7 @@ function OrderItem({ address, order, price, ts }) {
     </tr>)
 
     return (
-        <div className={`py-3 ${style.OrderItemBody}`}>
+        <div ref={reference} className={`py-3 ${style.OrderItemBody}`}>
             <strong className="d-inline-block mb-2">Time:</strong> {new Date(ts).toDateString()}
             <Address {...address} />
             <table className="table table-hover">

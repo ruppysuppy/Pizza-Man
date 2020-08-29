@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useCallback } from 'react'
 import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
 
@@ -6,7 +6,6 @@ import * as actions from '../../../store/actions/actions'
 
 import OrderItem from './OrderItem/OrderItem'
 import Spinner from '../../UI/Spinner/Spinner'
-import Button from '../../UI/Button/Button'
 import PageTitle from '../../UI/PageTitle/PageTitle'
 
 import commonStyle from '../../../static/style/common.module.css'
@@ -20,7 +19,7 @@ const updateOrderHandler = ({ updateOrder, user, last, hasMore }) => {
 }
 
 function Orders(props) {
-    const { user, hasMore, updateOrder, clearOrders, orders } = props
+    const { user, updateOrder, clearOrders, isLoading, hasMore } = props
 
     useEffect(() => {
         if (user) {
@@ -29,7 +28,28 @@ function Orders(props) {
         return () => clearOrders()
     }, [])
 
-    const display = props.orders.map(order => <OrderItem {...order} key={order.ts} />)
+    const observer = useRef()
+    const lastOrderRef = useCallback((node) => {
+        if (isLoading) { return }
+        if (observer.current) { observer.current.disconnect() }
+        observer.current = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting && hasMore) {
+                console.log("Visible")
+                updateOrderHandler(props)
+            }
+        })
+        if (node) { observer.current.observe(node) }
+    }, [isLoading, hasMore])
+
+    const items = props.orders.length
+    const display = props.orders.map((order, index) => {
+        if (items === index + 1) {
+            return <OrderItem reference={lastOrderRef} {...order} key={order.ts} />
+        }
+        else {
+            return <OrderItem {...order} key={order.ts} />
+        }
+    })
 
     return (
         <div className={`my-5 pt-2 container ${commonStyle.PageBody}`}>
@@ -50,10 +70,6 @@ function Orders(props) {
             <br />
             {props.isLoading ? <Spinner />
                 : null}
-            {props.hasMore ?
-                < Button onClick={() => updateOrderHandler(props)}>
-                    Load More
-                </Button> : null}
         </div >
     )
 }

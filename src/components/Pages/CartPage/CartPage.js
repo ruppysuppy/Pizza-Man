@@ -25,7 +25,7 @@ function CartPage(props) {
             <div className="mt-2">
                 {display}
             </div>
-            <div className="mt-3">
+            <div className="my-3">
                 <strong>Price: ₹ {props.price}</strong>
                 <br />
                 <strong>GST: ₹ {props.gst} (rate: {GST_RATE * 100}%)</strong>

@@ -37,7 +37,7 @@ export const updateOrder = (uid, lastData) => (dispatch) => {
         dbRef.where("uid", "==", uid)
             .orderBy("ts", "desc")
             .startAfter(lastData.data().ts)
-            .limit(1)
+            .limit(3)
             .get()
             .then(snapshot => {
                 const data = []
@@ -54,7 +54,7 @@ export const updateOrder = (uid, lastData) => (dispatch) => {
     } else {
         dbRef.where("uid", "==", uid)
             .orderBy("ts", "desc")
-            .limit(1)
+            .limit(3)
             .get()
             .then(snapshot => {
                 const data = []
