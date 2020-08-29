@@ -28,7 +28,7 @@ const firebaseConfig = {
 export default firebaseConfig;
 ```
 
-Data needs to be stored in the following format (can hold as many pizzas or categories as needed):
+Data needs to be stored in the following format:
 
 ```javascript
 [
@@ -46,6 +46,8 @@ Data needs to be stored in the following format (can hold as many pizzas or cate
 	},
 ];
 ```
+
+An example data is given in `/src/firebase/exampleData.json`
 
 ### How to Use
 

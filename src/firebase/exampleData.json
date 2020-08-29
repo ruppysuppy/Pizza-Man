@@ -1,0 +1,49 @@
+{
+  "menu": [
+    {
+      "items": [
+        {
+          "desc": "Classic delight with 100% real mozzarella cheese",
+          "id": 1,
+          "img": "IMAGE LINK",
+          "name": "Margherita",
+          "price": 298
+        },
+        {
+          "desc": "Barbecue chicken for that extra zing",
+          "id": 2,
+          "img": "IMAGE LINK",
+          "name": "Barbecue Chicken",
+          "price": 298
+        },
+        {
+          "desc": "Delightful combo of grilled mushroom & veggies",
+          "id": 3,
+          "img": "IMAGE LINK",
+          "name": "Farmhouse",
+          "price": 395
+        },
+        {
+          "desc": "Supreme combo of 3 types of chicken",
+          "id": 4,
+          "img": "IMAGE LINK",
+          "name": "Non Veg Supreme",
+          "price": 570
+        }
+      ],
+      "name": "Best Sellers"
+    },
+    {
+      "items": [
+        {
+          "desc": "Classic delight with 100% real mozzarella cheese",
+          "id": 1,
+          "img": "IMAGE LINK",
+          "name": "Margherita",
+          "price": 298
+        }
+      ],
+      "name": "Veg Pizzas"
+    }
+  ]
+}
