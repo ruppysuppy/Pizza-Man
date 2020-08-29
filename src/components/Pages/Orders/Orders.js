@@ -10,6 +10,7 @@ import Button from '../../UI/Button/Button'
 import PageTitle from '../../UI/PageTitle/PageTitle'
 
 import commonStyle from '../../../static/style/common.module.css'
+import style from './order.module.css'
 
 
 const updateOrderHandler = ({ updateOrder, user, last, hasMore }) => {
@@ -19,13 +20,14 @@ const updateOrderHandler = ({ updateOrder, user, last, hasMore }) => {
 }
 
 function Orders(props) {
-    const { user, hasMore, updateOrder, orders } = props
+    const { user, hasMore, updateOrder, clearOrders, orders } = props
 
     useEffect(() => {
-        if (user && hasMore && orders.length === 0) {
+        if (user) {
             updateOrder(user.uid)
         }
-    }, [user, hasMore, updateOrder, orders])
+        return () => clearOrders()
+    }, [])
 
     const display = props.orders.map(order => <OrderItem {...order} key={order.ts} />)
 
@@ -36,7 +38,10 @@ function Orders(props) {
             </PageTitle>
             <div className="my-2" />
             {!props.user ? <Redirect to="/" /> : null}
-            {props.orders.length > 0 ? display
+            {props.orders.length > 0 ? <>
+                <div className={style.TopBar} />
+                {display}
+            </>
                 : !props.isLoading ? <>
                     <h1 className="display-4">
                         You haven't ordered anything yet!
@@ -62,7 +67,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    updateOrder: (uid, lastData = null) => dispatch(actions.updateOrder(uid, lastData))
+    updateOrder: (uid, lastData = null) => dispatch(actions.updateOrder(uid, lastData)),
+    clearOrders: () => dispatch(actions.clearOrders())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Orders)
