@@ -103,13 +103,17 @@ function Checkout(props) {
                                                     <ErrorDisplay>
                                                         {props.addressError}
                                                     </ErrorDisplay>
-                                                    <Button onClick={() => setAddressFormShown(true)}>
-                                                        Add Address
+                                                    <span className="my-3 d-inline-block">
+                                                        <Button onClick={() => setAddressFormShown(true)}>
+                                                            Add Address
                                                     </Button>
+                                                    </span>
                                                 </> :
-                                                <Button onClick={() => setAddressFormShown(true)}>
-                                                    Update Address
+                                                <span className="my-3 d-inline-block">
+                                                    <Button onClick={() => setAddressFormShown(true)}>
+                                                        Update Address
                                                 </Button>
+                                                </span>
                                         }
                                     </>}
                             </div>
@@ -139,7 +143,7 @@ function Checkout(props) {
                                             </ErrorDisplay>
                                             : null}
                                     </div>
-                                    <div className="col-12">
+                                    <div className="col-12 my-3">
                                         <Button type="button" onClick={(event) => placeOrderHandler(event, props.address, modeSelected, data, props.placeOrder, props.placeOrderFail)}>
                                             Place Order
                                         </Button>
