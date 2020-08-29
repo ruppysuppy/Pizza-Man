@@ -1,9 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import style from './footer.module.css'
 
-function Footer() {
+function Footer(props) {
+    const { location, cart } = props
+    // console.log(props)
+
     return (
         <footer className={`pt-4 pb-2 ${style.Footer}`}>
             <div className="container">
@@ -73,7 +77,8 @@ function Footer() {
                     </div>
                 </div>
                 <div className={`mb-2 ${style.Row}`}>
-                    <span className={style.Copyright}>
+                    <span
+                        className={`${style.Copyright} ${location.pathname === "/menu" && cart.length > 0 ? style.ExtraPadding : null}`}>
                         Copyright © {new Date().getFullYear()} Tap FoodWorks Ltd. | All Rights Reserved
                     </span>
                 </div>
@@ -82,4 +87,8 @@ function Footer() {
     )
 }
 
-export default Footer
+const mapStateToProps = state => ({
+    cart: state.cart.cart
+})
+
+export default connect(mapStateToProps)(withRouter(Footer))

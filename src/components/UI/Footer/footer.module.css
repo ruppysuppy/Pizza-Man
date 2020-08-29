@@ -75,6 +75,10 @@
 	text-align: center;
 }
 
+.ExtraPadding {
+	padding-bottom: 0;
+}
+
 /* icon effects */
 .FaceBook {
 	color: #3b5998;
@@ -138,7 +142,7 @@
 
 /* media queries */
 @media (max-width: 992px) {
-	.Copyright {
+	.ExtraPadding {
 		padding-bottom: 48px;
 	}
 }
