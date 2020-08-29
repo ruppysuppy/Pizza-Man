@@ -29,8 +29,20 @@
 	margin: 8px 0;
 }
 
+.LandscapeOverlay {
+	display: none;
+	position: fixed;
+	background-color: black;
+	top: 0;
+	left: 0;
+	z-index: 150;
+}
+
 /* media queries */
 @media (max-width: 992px) {
+	.BodyContainer {
+		background-attachment: initial;
+	}
 	.Logo {
 		height: 150px;
 		left: -24px;
@@ -58,5 +70,23 @@
 	.H2 {
 		font-size: 18px;
 		margin: 12px 0;
+	}
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+	.LandscapeOverlay {
+		display: flex;
+	}
+	.LandscapeOverlay::after {
+		color: white;
+		content: "Please Switch to Portrait Mode";
+		height: 100vh;
+		width: 100vw;
+		margin: auto;
+		font-size: xx-large;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 40px;
 	}
 }

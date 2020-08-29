@@ -25,6 +25,7 @@ function Home() {
                         </Button>
                     </Link>
                 </div>
+                <div className={style.LandscapeOverlay} />
             </div>
         </>
     )
