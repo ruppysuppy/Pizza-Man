@@ -42,6 +42,9 @@ const reducer = (state = initialState, action) => {
                 error: payload.error
             }
 
+        case actionTypes.CLEAR_ORDERS:
+            return initialState
+
         default:
             return state;
     }

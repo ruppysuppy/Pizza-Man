@@ -8,8 +8,10 @@ import * as actions from '../../../store/actions/actions'
 
 function Logout(props) {
     if (props.user) {
-        firebase.auth().signOut()
         props.clearCart()
+        props.clearOrders()
+        props.clearAddress()
+        firebase.auth().signOut()
     }
 
     return (
@@ -22,7 +24,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    clearCart: () => dispatch(actions.clearCart())
+    clearCart: () => dispatch(actions.clearCart()),
+    clearOrders: () => dispatch(actions.clearOrders()),
+    clearAddress: () => dispatch(actions.clearAddress())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Logout)

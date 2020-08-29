@@ -70,3 +70,9 @@ export const updateOrder = (uid, lastData) => (dispatch) => {
             .catch(error => dispatch(getOrdersFail(error.message)))
     }
 }
+
+export const clearOrders = () => {
+    return {
+        type: actionTypes.CLEAR_ORDERS
+    }
+}

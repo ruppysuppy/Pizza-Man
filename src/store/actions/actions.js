@@ -21,8 +21,10 @@ export {
 export {
     getAddress,
     addAddress,
-    addAddressFail
+    addAddressFail,
+    clearAddress
 } from './address'
 export {
-    updateOrder
+    updateOrder,
+    clearOrders
 } from './pastOrders'

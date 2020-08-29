@@ -85,3 +85,10 @@ export const addAddress = (user, address, isNewData = true) => {
         }
     }
 }
+
+// Clearing address
+export const clearAddress = () => {
+    return {
+        type: actionTypes.CLEAR_ADDRESS
+    }
+}
