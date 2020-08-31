@@ -37,6 +37,7 @@ function CartPage(props) {
                     CHECKOUT
                 </Button>
             </Link>
+            <br /> <br />
         </div>
     )
 }
