@@ -1,15 +1,15 @@
 # Pizza Man Project
 
-This is an E-Commerce website for ordering Pizza Online
+An E-Commerce website for ordering Pizza Online
 
-### Tools used
+## Tools used
 
 1. React: To create the Single Page App
 2. React-Router: For Routing
 3. Redux: For State Management
 4. Firebase: As a DataBase
 
-### Firebase Setup
+## Firebase Setup
 
 You need to create a firebase configeration file holding the firebase settings in the path `/src/firebase/config.js`. The required format is:
 
@@ -49,10 +49,36 @@ Data needs to be stored in the following format:
 
 An example data is given in `/src/firebase/exampleData.json`
 
-### How to Use
+## How to Use
 
 To use the project follow the steps given below:
 
 1. Install the necessary modules (`npm install`).
 2. Setup Firebase Project and configeration
 3. Use `npm start` to run the react app
+
+## Screenshots
+
+### Desktop
+
+<p align="center">
+  <img width="100%" src="./screenshots/Desktop_01.PNG">
+</p>
+
+<p align="center">
+  <img width="100%" src="./screenshots/Desktop_02.PNG">
+</p>
+
+### Mobile
+
+<p align="center">
+  <img width="200px" src="./screenshots/Mobile_01.jpg">
+</p>
+
+<p align="center">
+  <img width="200px" src="./screenshots/Mobile_02.jpg">
+</p>
+
+<p align="center">
+  <img width="200px" src="./screenshots/Mobile_03.jpg">
+</p>
