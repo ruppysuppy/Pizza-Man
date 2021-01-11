@@ -2,6 +2,14 @@
 
 An E-Commerce website for ordering Pizza Online
 
+## Demo
+
+<div align="center">
+    <img src="./readme_img/demo.gif" style="width: 640px" />
+</div>
+
+**NOTE:** The features shown in the demo is not exhaustive. Only the core features are showcased in the demo.
+
 ## Tools used
 
 1. React: To create the Single Page App
@@ -56,29 +64,3 @@ To use the project follow the steps given below:
 1. Install the necessary modules (`npm install`).
 2. Setup Firebase Project and configuration
 3. Use `npm start` to run the react app
-
-## Screenshots
-
-### Desktop
-
-<p align="center">
-  <img width="100%" src="./screenshots/Desktop_01.PNG" style="border: 1px solid black">
-</p>
-
-<p align="center">
-  <img width="100%" src="./screenshots/Desktop_02.PNG" style="border: 1px solid black">
-</p>
-
-### Mobile
-
-<p align="center">
-  <img width="200px" src="./screenshots/Mobile_01.jpg" style="border: 1px solid black">
-</p>
-
-<p align="center">
-  <img width="200px" src="./screenshots/Mobile_02.jpg" style="border: 1px solid black">
-</p>
-
-<p align="center">
-  <img width="200px" src="./screenshots/Mobile_03.jpg" style="border: 1px solid black">
-</p>
